@@ -798,6 +798,284 @@ export default function ThemePreview({ theme }: ThemePreviewProps) {
         </div>
       )
 
+    /* ── Ivory: Floating Top Bar (Luxury gold) ── */
+    case 'ivory':
+      return (
+        <div style={base}>
+          {/* Floating top bar with rounded corners */}
+          <div style={{ padding: '4px 5px 0', flexShrink: 0 }}>
+            <div style={{
+              height: 14,
+              background: '#fff',
+              borderRadius: 8,
+              border: `1px solid ${c.border}`,
+              display: 'flex',
+              alignItems: 'center',
+              padding: '0 6px',
+              gap: 4,
+              boxShadow: '0 2px 8px rgba(0,0,0,0.04), 0 0 0 1px rgba(0,0,0,0.02)',
+            }}>
+              <div style={{
+                width: 7,
+                height: 7,
+                borderRadius: 3,
+                background: `linear-gradient(135deg, ${c.accent}, #dab65e)`,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexShrink: 0,
+              }}>
+                <span style={{ fontSize: 3.5, fontWeight: 700, color: '#fff' }}>A</span>
+              </div>
+              <span style={{ fontSize: 5, fontWeight: 700, color: c.text }}>Apex</span>
+              {['Dashboard', 'Contacts', 'Pipelines'].map((item, i) => (
+                <span key={item} style={{
+                  fontSize: 4,
+                  color: i === 0 ? c.accent : c.text3,
+                  fontWeight: i === 0 ? 600 : 400,
+                }}>{item}</span>
+              ))}
+              <div style={{
+                marginLeft: 'auto',
+                width: 8,
+                height: 8,
+                borderRadius: 999,
+                background: 'linear-gradient(135deg, #c4993c, #dab65e)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: 3.5,
+                fontWeight: 700,
+                color: '#fff',
+              }}>JD</div>
+            </div>
+          </div>
+          <PremiumDashboard c={c} uid="ivory" />
+        </div>
+      )
+
+    /* ── Cloud: Pill Sidebar (Sky blue) ── */
+    case 'cloud':
+      return (
+        <div style={base}>
+          <div style={{ display: 'flex', flex: 1, overflow: 'hidden' }}>
+            {/* Pill-style sidebar */}
+            <div style={{
+              width: 44,
+              background: c.bg1,
+              borderRight: `1px solid ${c.border}`,
+              padding: '6px 4px',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 1.5,
+              flexShrink: 0,
+              boxShadow: '1px 0 3px rgba(0,0,0,0.03)',
+            }}>
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 2,
+                padding: '0 3px 5px',
+                marginBottom: 2,
+                borderBottom: `1px solid ${c.border}`,
+              }}>
+                <div style={{
+                  width: 7,
+                  height: 7,
+                  borderRadius: 3,
+                  background: `linear-gradient(135deg, ${c.accent}, #5aa4f5)`,
+                  flexShrink: 0,
+                }} />
+                <span style={{ fontSize: 4.5, fontWeight: 700, color: c.text }}>Apex</span>
+              </div>
+              {navLabels.map((item, i) => (
+                <div key={item} style={{
+                  fontSize: 4.5,
+                  padding: '2.5px 6px',
+                  borderRadius: 10,
+                  color: i === 0 ? c.accent : c.text2,
+                  background: i === 0 ? c.accentSoft : 'transparent',
+                  fontWeight: i === 0 ? 700 : 400,
+                  border: i === 0 ? `1px solid ${c.accent}18` : '1px solid transparent',
+                }}>
+                  {item}
+                </div>
+              ))}
+            </div>
+            <PremiumDashboard c={c} uid="cloud" />
+          </div>
+        </div>
+      )
+
+    /* ── Pearl: Top Tabs + Underline (Rose blush) ── */
+    case 'pearl':
+      return (
+        <div style={base}>
+          <PremiumTopBar c={c} brandText="Apex" />
+          {/* Tab bar with underline indicator */}
+          <div style={{
+            height: 14,
+            background: c.surface,
+            borderBottom: `1px solid ${c.border}`,
+            display: 'flex',
+            alignItems: 'flex-end',
+            padding: '0 8px',
+            gap: 8,
+            flexShrink: 0,
+          }}>
+            {['Dashboard', 'Contacts', 'Pipelines', 'Calendar'].map((item, i) => (
+              <span key={item} style={{
+                fontSize: 4.5,
+                color: i === 0 ? c.accent : c.text3,
+                fontWeight: i === 0 ? 600 : 400,
+                paddingBottom: 3,
+                borderBottom: i === 0 ? `1.5px solid ${c.accent}` : '1.5px solid transparent',
+              }}>{item}</span>
+            ))}
+          </div>
+          <PremiumDashboard c={c} uid="pearl" />
+        </div>
+      )
+
+    /* ── Linen: Compact Icon Sidebar (Terracotta) ── */
+    case 'linen':
+      return (
+        <div style={base}>
+          <div style={{ display: 'flex', flex: 1, overflow: 'hidden' }}>
+            {/* Compact icon-only sidebar */}
+            <div style={{
+              width: 18,
+              background: c.bg1,
+              borderRight: `1px solid ${c.border}`,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: 4,
+              paddingTop: 6,
+              flexShrink: 0,
+              boxShadow: '1px 0 3px rgba(0,0,0,0.03)',
+            }}>
+              <div style={{
+                width: 8,
+                height: 8,
+                borderRadius: 3,
+                background: `linear-gradient(135deg, ${c.accent}, #d88a60)`,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginBottom: 4,
+              }}>
+                <span style={{ fontSize: 4, fontWeight: 700, color: '#fff' }}>A</span>
+              </div>
+              {['#e8ddd0', c.text3, c.text3, c.text3, c.text3, c.text3].map((col, i) => (
+                <div key={i} style={{
+                  width: 8,
+                  height: 8,
+                  borderRadius: 3,
+                  background: i === 0 ? c.accentSoft : 'transparent',
+                  border: i === 0 ? `1px solid ${c.accent}25` : `1px solid ${c.border}`,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}>
+                  <div style={{
+                    width: 4,
+                    height: 4,
+                    borderRadius: 1.5,
+                    background: i === 0 ? c.accent : col,
+                    opacity: i === 0 ? 1 : 0.4,
+                  }} />
+                </div>
+              ))}
+            </div>
+            <PremiumDashboard c={c} uid="linen" />
+          </div>
+        </div>
+      )
+
+    /* ── Frost: Glass Pill Tabs (Electric indigo) ── */
+    case 'frost':
+      return (
+        <div style={base}>
+          {/* Glassmorphic pill tab bar */}
+          <div style={{
+            height: 18,
+            background: c.bg1,
+            borderBottom: `1px solid ${c.border}`,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: 3,
+            padding: '0 8px',
+            flexShrink: 0,
+            boxShadow: '0 1px 3px rgba(0,0,0,0.04)',
+          }}>
+            {['Dashboard', 'Contacts', 'Pipelines', 'Calendar'].map((item, i) => (
+              <div key={item} style={{
+                fontSize: 4.5,
+                padding: '2px 6px',
+                borderRadius: 8,
+                color: i === 0 ? '#fff' : c.text3,
+                background: i === 0 ? `linear-gradient(135deg, ${c.accent}, #8b6ce0)` : 'transparent',
+                border: i === 0 ? 'none' : '1px solid transparent',
+                fontWeight: i === 0 ? 700 : 400,
+                boxShadow: i === 0 ? `0 2px 6px ${c.accent}30` : 'none',
+              }}>{item}</div>
+            ))}
+            <div style={{
+              marginLeft: 'auto',
+              width: 8,
+              height: 8,
+              borderRadius: 999,
+              background: 'linear-gradient(135deg, #8b6ce0, #6c47d9)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: 3.5,
+              fontWeight: 700,
+              color: '#fff',
+            }}>JD</div>
+          </div>
+          <PremiumDashboard c={c} uid="frost" />
+        </div>
+      )
+
+    /* ── Canvas: Bottom Dock (Forest green) ── */
+    case 'canvas':
+      return (
+        <div style={base}>
+          <PremiumTopBar c={c} brandText="Apex" />
+          <PremiumDashboard c={c} uid="canvas" compact />
+          {/* Bottom dock */}
+          <div style={{
+            height: 16,
+            background: '#fff',
+            borderTop: `1px solid ${c.border}`,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: 8,
+            padding: '0 12px',
+            flexShrink: 0,
+            boxShadow: '0 -2px 8px rgba(0,0,0,0.04)',
+          }}>
+            {['Home', 'Contacts', 'Deals', 'Tasks', 'More'].map((item, i) => (
+              <div key={item} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 1 }}>
+                <div style={{
+                  width: 5,
+                  height: 5,
+                  borderRadius: 2,
+                  background: i === 0 ? c.accent : c.text3,
+                  opacity: i === 0 ? 1 : 0.4,
+                  boxShadow: i === 0 ? `0 0 4px ${c.accent}40` : 'none',
+                }} />
+                <div style={{ fontSize: 3, color: i === 0 ? c.accent : c.text3, fontWeight: i === 0 ? 600 : 400 }}>{item}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )
+
     default:
       return <div style={{ ...base, background: theme.swatch }} />
   }
