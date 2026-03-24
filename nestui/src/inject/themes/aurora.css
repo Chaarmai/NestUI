@@ -1,0 +1,153 @@
+/*
+ * Nest UI — Aurora Theme
+ * Clean premium SaaS. Warm white with soft purple accents.
+ * Nav: Left Sidebar
+ */
+
+body.nestui-active.nestui-aurora {
+  --bg: #f5f4f0;
+  --bg1: #eeedea;
+  --bg2: #ffffff;
+  --surface: #fafaf8;
+  --border: rgba(0,0,0,0.07);
+  --accent: #7c5cfc;
+  --accent-soft: rgba(124,92,252,0.08);
+  --text: #111110;
+  --text2: #6b6b67;
+  --text3: #ababab;
+
+  background-color: var(--bg) !important;
+  color: var(--text) !important;
+}
+
+body.nestui-active.nestui-aurora,
+body.nestui-active.nestui-aurora * {
+  --hl-primary-color: #7c5cfc !important;
+  --hl-bg-color: #f5f4f0 !important;
+  --hl-text-color: #111110 !important;
+  --hl-border-color: rgba(0,0,0,0.07) !important;
+}
+
+body.nestui-active.nestui-aurora .hl-sidebar,
+body.nestui-active.nestui-aurora [class*="sidebar"],
+body.nestui-active.nestui-aurora nav {
+  background-color: var(--bg1) !important;
+  border-color: var(--border) !important;
+}
+
+body.nestui-active.nestui-aurora .hl-sidebar a,
+body.nestui-active.nestui-aurora [class*="sidebar"] a {
+  color: var(--text2) !important;
+}
+
+body.nestui-active.nestui-aurora .hl-sidebar a.active,
+body.nestui-active.nestui-aurora .hl-sidebar a[aria-current="page"],
+body.nestui-active.nestui-aurora [class*="sidebar"] a.active {
+  color: var(--accent) !important;
+  background-color: var(--accent-soft) !important;
+}
+
+body.nestui-active.nestui-aurora .hl-header,
+body.nestui-active.nestui-aurora header,
+body.nestui-active.nestui-aurora [class*="topbar"],
+body.nestui-active.nestui-aurora [class*="top-bar"] {
+  background-color: var(--bg2) !important;
+  border-bottom-color: var(--border) !important;
+}
+
+body.nestui-active.nestui-aurora .hl-card,
+body.nestui-active.nestui-aurora [class*="card"],
+body.nestui-active.nestui-aurora .hl-panel {
+  background-color: var(--surface) !important;
+  border-color: var(--border) !important;
+  color: var(--text) !important;
+}
+
+body.nestui-active.nestui-aurora table,
+body.nestui-active.nestui-aurora .hl-table {
+  background-color: var(--bg2) !important;
+}
+
+body.nestui-active.nestui-aurora th {
+  background-color: var(--bg1) !important;
+  color: var(--text2) !important;
+  border-color: var(--border) !important;
+}
+
+body.nestui-active.nestui-aurora td {
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+
+body.nestui-active.nestui-aurora .hl-btn-primary,
+body.nestui-active.nestui-aurora [class*="btn-primary"],
+body.nestui-active.nestui-aurora button[type="submit"] {
+  background-color: var(--accent) !important;
+  color: #ffffff !important;
+  border: none !important;
+}
+
+body.nestui-active.nestui-aurora .hl-btn-secondary,
+body.nestui-active.nestui-aurora [class*="btn-secondary"] {
+  background-color: var(--surface) !important;
+  color: var(--accent) !important;
+  border: 1px solid var(--border) !important;
+}
+
+body.nestui-active.nestui-aurora input,
+body.nestui-active.nestui-aurora select,
+body.nestui-active.nestui-aurora textarea {
+  background-color: var(--bg2) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+
+body.nestui-active.nestui-aurora input::placeholder,
+body.nestui-active.nestui-aurora textarea::placeholder {
+  color: var(--text3) !important;
+}
+
+body.nestui-active.nestui-aurora a {
+  color: var(--accent) !important;
+}
+
+body.nestui-active.nestui-aurora .hl-badge,
+body.nestui-active.nestui-aurora [class*="badge"] {
+  background-color: var(--accent-soft) !important;
+  color: var(--accent) !important;
+}
+
+body.nestui-active.nestui-aurora [class*="modal"],
+body.nestui-active.nestui-aurora [class*="dropdown-menu"],
+body.nestui-active.nestui-aurora [class*="popover"] {
+  background-color: var(--surface) !important;
+  border-color: var(--border) !important;
+  color: var(--text) !important;
+}
+
+body.nestui-active.nestui-aurora ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+body.nestui-active.nestui-aurora ::-webkit-scrollbar-track {
+  background: var(--bg) !important;
+}
+
+body.nestui-active.nestui-aurora ::-webkit-scrollbar-thumb {
+  background: var(--text3) !important;
+  border-radius: 3px;
+}
+
+body.nestui-active.nestui-aurora h1,
+body.nestui-active.nestui-aurora h2,
+body.nestui-active.nestui-aurora h3,
+body.nestui-active.nestui-aurora h4 {
+  color: var(--text) !important;
+}
+
+body.nestui-active.nestui-aurora p,
+body.nestui-active.nestui-aurora span,
+body.nestui-active.nestui-aurora label {
+  color: var(--text2) !important;
+}

@@ -1,0 +1,159 @@
+/*
+ * Nest UI — Nova Theme
+ * Glassmorphism cards with pill nav. Deep purple midnight.
+ * Nav: Top Pill Tabs
+ */
+
+body.nestui-active.nestui-nova {
+  --bg: #0e0b1a;
+  --bg1: #130f22;
+  --bg2: #18132e;
+  --surface: rgba(255,255,255,0.04);
+  --border: rgba(255,255,255,0.07);
+  --accent: #a78bfa;
+  --accent-soft: rgba(167,139,250,0.12);
+  --text: #f1eeff;
+  --text2: #8b82b0;
+  --text3: #4a4468;
+
+  background-color: var(--bg) !important;
+  color: var(--text) !important;
+}
+
+body.nestui-active.nestui-nova,
+body.nestui-active.nestui-nova * {
+  --hl-primary-color: #a78bfa !important;
+  --hl-bg-color: #0e0b1a !important;
+  --hl-text-color: #f1eeff !important;
+  --hl-border-color: rgba(255,255,255,0.07) !important;
+}
+
+/* Hide sidebar — Nova uses top pill tabs */
+body.nestui-active.nestui-nova .hl-sidebar,
+body.nestui-active.nestui-nova [class*="sidebar"] {
+  display: none !important;
+}
+
+body.nestui-active.nestui-nova .hl-header,
+body.nestui-active.nestui-nova header,
+body.nestui-active.nestui-nova [class*="topbar"],
+body.nestui-active.nestui-nova [class*="top-bar"] {
+  background-color: var(--bg1) !important;
+  border-bottom-color: var(--border) !important;
+}
+
+body.nestui-active.nestui-nova nav a,
+body.nestui-active.nestui-nova [class*="topbar"] a {
+  color: var(--text3) !important;
+  border-radius: 999px;
+  padding: 4px 12px;
+}
+
+body.nestui-active.nestui-nova nav a.active,
+body.nestui-active.nestui-nova nav a[aria-current="page"] {
+  color: var(--accent) !important;
+  background-color: var(--accent-soft) !important;
+  border: 1px solid rgba(167,139,250,0.25);
+}
+
+body.nestui-active.nestui-nova .hl-card,
+body.nestui-active.nestui-nova [class*="card"],
+body.nestui-active.nestui-nova .hl-panel {
+  background-color: var(--surface) !important;
+  border-color: var(--border) !important;
+  color: var(--text) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+body.nestui-active.nestui-nova table,
+body.nestui-active.nestui-nova .hl-table {
+  background-color: var(--bg1) !important;
+}
+
+body.nestui-active.nestui-nova th {
+  background-color: var(--bg2) !important;
+  color: var(--text2) !important;
+  border-color: var(--border) !important;
+}
+
+body.nestui-active.nestui-nova td {
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+
+body.nestui-active.nestui-nova .hl-btn-primary,
+body.nestui-active.nestui-nova [class*="btn-primary"],
+body.nestui-active.nestui-nova button[type="submit"] {
+  background-color: var(--accent) !important;
+  color: #0e0b1a !important;
+  border: none !important;
+}
+
+body.nestui-active.nestui-nova .hl-btn-secondary,
+body.nestui-active.nestui-nova [class*="btn-secondary"] {
+  background-color: var(--surface) !important;
+  color: var(--accent) !important;
+  border: 1px solid var(--border) !important;
+  backdrop-filter: blur(12px);
+}
+
+body.nestui-active.nestui-nova input,
+body.nestui-active.nestui-nova select,
+body.nestui-active.nestui-nova textarea {
+  background-color: var(--bg2) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+
+body.nestui-active.nestui-nova input::placeholder,
+body.nestui-active.nestui-nova textarea::placeholder {
+  color: var(--text3) !important;
+}
+
+body.nestui-active.nestui-nova a {
+  color: var(--accent) !important;
+}
+
+body.nestui-active.nestui-nova .hl-badge,
+body.nestui-active.nestui-nova [class*="badge"] {
+  background-color: var(--accent-soft) !important;
+  color: var(--accent) !important;
+}
+
+body.nestui-active.nestui-nova [class*="modal"],
+body.nestui-active.nestui-nova [class*="dropdown-menu"],
+body.nestui-active.nestui-nova [class*="popover"] {
+  background-color: var(--bg1) !important;
+  border-color: var(--border) !important;
+  color: var(--text) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+body.nestui-active.nestui-nova ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+body.nestui-active.nestui-nova ::-webkit-scrollbar-track {
+  background: var(--bg) !important;
+}
+
+body.nestui-active.nestui-nova ::-webkit-scrollbar-thumb {
+  background: var(--text3) !important;
+  border-radius: 3px;
+}
+
+body.nestui-active.nestui-nova h1,
+body.nestui-active.nestui-nova h2,
+body.nestui-active.nestui-nova h3,
+body.nestui-active.nestui-nova h4 {
+  color: var(--text) !important;
+}
+
+body.nestui-active.nestui-nova p,
+body.nestui-active.nestui-nova span,
+body.nestui-active.nestui-nova label {
+  color: var(--text2) !important;
+}

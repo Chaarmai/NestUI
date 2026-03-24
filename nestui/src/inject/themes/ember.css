@@ -1,0 +1,140 @@
+/*
+ * Nest UI — Ember Theme
+ * Luxury crimson with serif typography. Bottom dock navigation.
+ * Nav: Bottom Dock
+ */
+
+body.nestui-active.nestui-ember {
+  --bg: #0c0808;
+  --bg1: #120a0a;
+  --bg2: #1a0e0e;
+  --surface: #2a1515;
+  --border: rgba(220,80,60,0.08);
+  --accent: #e05252;
+  --accent-soft: rgba(224,82,82,0.08);
+  --text: #f5e6d8;
+  --text2: #8a6a5a;
+  --text3: #4a3028;
+
+  background-color: var(--bg) !important;
+  color: var(--text) !important;
+}
+
+body.nestui-active.nestui-ember,
+body.nestui-active.nestui-ember * {
+  --hl-primary-color: #e05252 !important;
+  --hl-bg-color: #0c0808 !important;
+  --hl-text-color: #f5e6d8 !important;
+  --hl-border-color: rgba(220,80,60,0.08) !important;
+}
+
+/* Hide sidebar — Ember uses bottom dock */
+body.nestui-active.nestui-ember .hl-sidebar,
+body.nestui-active.nestui-ember [class*="sidebar"] {
+  display: none !important;
+}
+
+body.nestui-active.nestui-ember .hl-header,
+body.nestui-active.nestui-ember header,
+body.nestui-active.nestui-ember [class*="topbar"],
+body.nestui-active.nestui-ember [class*="top-bar"] {
+  background-color: var(--bg) !important;
+  border-bottom-color: var(--border) !important;
+}
+
+body.nestui-active.nestui-ember .hl-card,
+body.nestui-active.nestui-ember [class*="card"],
+body.nestui-active.nestui-ember .hl-panel {
+  background-color: var(--surface) !important;
+  border-color: var(--border) !important;
+  color: var(--text) !important;
+}
+
+body.nestui-active.nestui-ember table,
+body.nestui-active.nestui-ember .hl-table {
+  background-color: var(--bg1) !important;
+}
+
+body.nestui-active.nestui-ember th {
+  background-color: var(--bg2) !important;
+  color: var(--text2) !important;
+  border-color: var(--border) !important;
+}
+
+body.nestui-active.nestui-ember td {
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+
+body.nestui-active.nestui-ember .hl-btn-primary,
+body.nestui-active.nestui-ember [class*="btn-primary"],
+body.nestui-active.nestui-ember button[type="submit"] {
+  background-color: var(--accent) !important;
+  color: #ffffff !important;
+  border: none !important;
+}
+
+body.nestui-active.nestui-ember .hl-btn-secondary,
+body.nestui-active.nestui-ember [class*="btn-secondary"] {
+  background-color: var(--surface) !important;
+  color: var(--accent) !important;
+  border: 1px solid var(--border) !important;
+}
+
+body.nestui-active.nestui-ember input,
+body.nestui-active.nestui-ember select,
+body.nestui-active.nestui-ember textarea {
+  background-color: var(--bg2) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+
+body.nestui-active.nestui-ember input::placeholder,
+body.nestui-active.nestui-ember textarea::placeholder {
+  color: var(--text3) !important;
+}
+
+body.nestui-active.nestui-ember a {
+  color: var(--accent) !important;
+}
+
+body.nestui-active.nestui-ember .hl-badge,
+body.nestui-active.nestui-ember [class*="badge"] {
+  background-color: var(--accent-soft) !important;
+  color: var(--accent) !important;
+}
+
+body.nestui-active.nestui-ember [class*="modal"],
+body.nestui-active.nestui-ember [class*="dropdown-menu"],
+body.nestui-active.nestui-ember [class*="popover"] {
+  background-color: var(--surface) !important;
+  border-color: var(--border) !important;
+  color: var(--text) !important;
+}
+
+body.nestui-active.nestui-ember ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+body.nestui-active.nestui-ember ::-webkit-scrollbar-track {
+  background: var(--bg) !important;
+}
+
+body.nestui-active.nestui-ember ::-webkit-scrollbar-thumb {
+  background: var(--text3) !important;
+  border-radius: 3px;
+}
+
+body.nestui-active.nestui-ember h1,
+body.nestui-active.nestui-ember h2,
+body.nestui-active.nestui-ember h3,
+body.nestui-active.nestui-ember h4 {
+  color: var(--text) !important;
+}
+
+body.nestui-active.nestui-ember p,
+body.nestui-active.nestui-ember span,
+body.nestui-active.nestui-ember label {
+  color: var(--text2) !important;
+}

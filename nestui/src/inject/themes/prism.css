@@ -1,0 +1,154 @@
+/*
+ * Nest UI — Prism Theme
+ * Data-dense intelligence. Wide sidebar with live lead previews.
+ * Nav: Wide Sidebar + Previews
+ */
+
+body.nestui-active.nestui-prism {
+  --bg: #08090f;
+  --bg1: #0d0f1a;
+  --bg2: #111422;
+  --surface: #1c2035;
+  --border: rgba(100,120,240,0.09);
+  --accent: #6478f0;
+  --accent-soft: rgba(100,120,240,0.1);
+  --text: #e2e8f8;
+  --text2: #6b7aaa;
+  --text3: #343d60;
+
+  background-color: var(--bg) !important;
+  color: var(--text) !important;
+}
+
+body.nestui-active.nestui-prism,
+body.nestui-active.nestui-prism * {
+  --hl-primary-color: #6478f0 !important;
+  --hl-bg-color: #08090f !important;
+  --hl-text-color: #e2e8f8 !important;
+  --hl-border-color: rgba(100,120,240,0.09) !important;
+}
+
+body.nestui-active.nestui-prism .hl-sidebar,
+body.nestui-active.nestui-prism [class*="sidebar"],
+body.nestui-active.nestui-prism nav {
+  background-color: var(--bg1) !important;
+  border-color: var(--border) !important;
+  min-width: 260px;
+}
+
+body.nestui-active.nestui-prism .hl-sidebar a,
+body.nestui-active.nestui-prism [class*="sidebar"] a {
+  color: var(--text2) !important;
+}
+
+body.nestui-active.nestui-prism .hl-sidebar a.active,
+body.nestui-active.nestui-prism .hl-sidebar a[aria-current="page"],
+body.nestui-active.nestui-prism [class*="sidebar"] a.active {
+  color: var(--accent) !important;
+  background-color: var(--accent-soft) !important;
+}
+
+body.nestui-active.nestui-prism .hl-header,
+body.nestui-active.nestui-prism header,
+body.nestui-active.nestui-prism [class*="topbar"],
+body.nestui-active.nestui-prism [class*="top-bar"] {
+  background-color: var(--bg1) !important;
+  border-bottom-color: var(--border) !important;
+}
+
+body.nestui-active.nestui-prism .hl-card,
+body.nestui-active.nestui-prism [class*="card"],
+body.nestui-active.nestui-prism .hl-panel {
+  background-color: var(--surface) !important;
+  border-color: var(--border) !important;
+  color: var(--text) !important;
+}
+
+body.nestui-active.nestui-prism table,
+body.nestui-active.nestui-prism .hl-table {
+  background-color: var(--bg1) !important;
+}
+
+body.nestui-active.nestui-prism th {
+  background-color: var(--bg2) !important;
+  color: var(--text2) !important;
+  border-color: var(--border) !important;
+}
+
+body.nestui-active.nestui-prism td {
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+
+body.nestui-active.nestui-prism .hl-btn-primary,
+body.nestui-active.nestui-prism [class*="btn-primary"],
+body.nestui-active.nestui-prism button[type="submit"] {
+  background-color: var(--accent) !important;
+  color: #ffffff !important;
+  border: none !important;
+}
+
+body.nestui-active.nestui-prism .hl-btn-secondary,
+body.nestui-active.nestui-prism [class*="btn-secondary"] {
+  background-color: var(--surface) !important;
+  color: var(--accent) !important;
+  border: 1px solid var(--border) !important;
+}
+
+body.nestui-active.nestui-prism input,
+body.nestui-active.nestui-prism select,
+body.nestui-active.nestui-prism textarea {
+  background-color: var(--bg2) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+
+body.nestui-active.nestui-prism input::placeholder,
+body.nestui-active.nestui-prism textarea::placeholder {
+  color: var(--text3) !important;
+}
+
+body.nestui-active.nestui-prism a {
+  color: var(--accent) !important;
+}
+
+body.nestui-active.nestui-prism .hl-badge,
+body.nestui-active.nestui-prism [class*="badge"] {
+  background-color: var(--accent-soft) !important;
+  color: var(--accent) !important;
+}
+
+body.nestui-active.nestui-prism [class*="modal"],
+body.nestui-active.nestui-prism [class*="dropdown-menu"],
+body.nestui-active.nestui-prism [class*="popover"] {
+  background-color: var(--surface) !important;
+  border-color: var(--border) !important;
+  color: var(--text) !important;
+}
+
+body.nestui-active.nestui-prism ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+body.nestui-active.nestui-prism ::-webkit-scrollbar-track {
+  background: var(--bg) !important;
+}
+
+body.nestui-active.nestui-prism ::-webkit-scrollbar-thumb {
+  background: var(--text3) !important;
+  border-radius: 3px;
+}
+
+body.nestui-active.nestui-prism h1,
+body.nestui-active.nestui-prism h2,
+body.nestui-active.nestui-prism h3,
+body.nestui-active.nestui-prism h4 {
+  color: var(--text) !important;
+}
+
+body.nestui-active.nestui-prism p,
+body.nestui-active.nestui-prism span,
+body.nestui-active.nestui-prism label {
+  color: var(--text2) !important;
+}

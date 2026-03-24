@@ -31,7 +31,7 @@
 - Customer portal access
 - Completed: 2026-03-23
 
-### Phase 5 — Polish & Launch (Not started)
+### Phase 5 — Polish & Launch (In progress)
 - AI Theme Generator
 - Sub-account management
 - Onboarding checklist

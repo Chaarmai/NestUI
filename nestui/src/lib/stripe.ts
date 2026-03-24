@@ -68,8 +68,8 @@ export const PLANS: PlanDefinition[] = [
   {
     id: 'agency',
     name: 'Agency',
-    monthlyPrice: 399,
-    annualPrice: 329,
+    monthlyPrice: 397,
+    annualPrice: 317,
     stripeMonthlyPriceId: STRIPE_PRICES.agency_monthly,
     stripeAnnualPriceId: STRIPE_PRICES.agency_annual,
     features: [

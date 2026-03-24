@@ -1,0 +1,156 @@
+/*
+ * Nest UI — Void Theme
+ * Brutalist monochrome. Nav on the right. Single electric green accent.
+ * Nav: Right Panel Nav
+ */
+
+body.nestui-active.nestui-void {
+  --bg: #050505;
+  --bg1: #0a0a0a;
+  --bg2: #0f0f0f;
+  --surface: #141414;
+  --border: rgba(255,255,255,0.06);
+  --accent: #00ff88;
+  --accent-soft: rgba(0,255,136,0.08);
+  --text: #ffffff;
+  --text2: #666666;
+  --text3: #333333;
+
+  background-color: var(--bg) !important;
+  color: var(--text) !important;
+}
+
+body.nestui-active.nestui-void,
+body.nestui-active.nestui-void * {
+  --hl-primary-color: #00ff88 !important;
+  --hl-bg-color: #050505 !important;
+  --hl-text-color: #ffffff !important;
+  --hl-border-color: rgba(255,255,255,0.06) !important;
+}
+
+/* Move sidebar to right */
+body.nestui-active.nestui-void .hl-sidebar,
+body.nestui-active.nestui-void [class*="sidebar"] {
+  background-color: var(--bg1) !important;
+  border-color: var(--border) !important;
+  order: 999 !important;
+  border-left: 1px solid var(--border) !important;
+  border-right: none !important;
+}
+
+body.nestui-active.nestui-void .hl-sidebar a,
+body.nestui-active.nestui-void [class*="sidebar"] a {
+  color: var(--text2) !important;
+}
+
+body.nestui-active.nestui-void .hl-sidebar a.active,
+body.nestui-active.nestui-void .hl-sidebar a[aria-current="page"],
+body.nestui-active.nestui-void [class*="sidebar"] a.active {
+  color: var(--accent) !important;
+  background-color: var(--accent-soft) !important;
+}
+
+body.nestui-active.nestui-void .hl-header,
+body.nestui-active.nestui-void header,
+body.nestui-active.nestui-void [class*="topbar"],
+body.nestui-active.nestui-void [class*="top-bar"] {
+  background-color: var(--bg) !important;
+  border-bottom-color: var(--border) !important;
+}
+
+body.nestui-active.nestui-void .hl-card,
+body.nestui-active.nestui-void [class*="card"],
+body.nestui-active.nestui-void .hl-panel {
+  background-color: var(--surface) !important;
+  border-color: var(--border) !important;
+  color: var(--text) !important;
+}
+
+body.nestui-active.nestui-void table,
+body.nestui-active.nestui-void .hl-table {
+  background-color: var(--bg1) !important;
+}
+
+body.nestui-active.nestui-void th {
+  background-color: var(--bg2) !important;
+  color: var(--text2) !important;
+  border-color: var(--border) !important;
+}
+
+body.nestui-active.nestui-void td {
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+
+body.nestui-active.nestui-void .hl-btn-primary,
+body.nestui-active.nestui-void [class*="btn-primary"],
+body.nestui-active.nestui-void button[type="submit"] {
+  background-color: var(--accent) !important;
+  color: #050505 !important;
+  border: none !important;
+}
+
+body.nestui-active.nestui-void .hl-btn-secondary,
+body.nestui-active.nestui-void [class*="btn-secondary"] {
+  background-color: var(--surface) !important;
+  color: var(--accent) !important;
+  border: 1px solid var(--border) !important;
+}
+
+body.nestui-active.nestui-void input,
+body.nestui-active.nestui-void select,
+body.nestui-active.nestui-void textarea {
+  background-color: var(--bg2) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+
+body.nestui-active.nestui-void input::placeholder,
+body.nestui-active.nestui-void textarea::placeholder {
+  color: var(--text3) !important;
+}
+
+body.nestui-active.nestui-void a {
+  color: var(--accent) !important;
+}
+
+body.nestui-active.nestui-void .hl-badge,
+body.nestui-active.nestui-void [class*="badge"] {
+  background-color: var(--accent-soft) !important;
+  color: var(--accent) !important;
+}
+
+body.nestui-active.nestui-void [class*="modal"],
+body.nestui-active.nestui-void [class*="dropdown-menu"],
+body.nestui-active.nestui-void [class*="popover"] {
+  background-color: var(--surface) !important;
+  border-color: var(--border) !important;
+  color: var(--text) !important;
+}
+
+body.nestui-active.nestui-void ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+body.nestui-active.nestui-void ::-webkit-scrollbar-track {
+  background: var(--bg) !important;
+}
+
+body.nestui-active.nestui-void ::-webkit-scrollbar-thumb {
+  background: var(--text3) !important;
+  border-radius: 3px;
+}
+
+body.nestui-active.nestui-void h1,
+body.nestui-active.nestui-void h2,
+body.nestui-active.nestui-void h3,
+body.nestui-active.nestui-void h4 {
+  color: var(--text) !important;
+}
+
+body.nestui-active.nestui-void p,
+body.nestui-active.nestui-void span,
+body.nestui-active.nestui-void label {
+  color: var(--text2) !important;
+}

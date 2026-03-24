@@ -1,0 +1,166 @@
+/*
+ * Nest UI — Obsidian Theme
+ * Sci-fi mission control. Deep navy with cyan glow accents.
+ * Nav: Rail + Sidebar
+ */
+
+body.nestui-active.nestui-obsidian {
+  /* ── Base surfaces ── */
+  --bg: #030508;
+  --bg1: #080c12;
+  --bg2: #0d1420;
+  --surface: #141f33;
+  --border: rgba(99,179,237,0.08);
+  --accent: #00d4ff;
+  --accent-soft: rgba(0,212,255,0.1);
+  --text: #e8f4ff;
+  --text2: #7a9bbf;
+  --text3: #3d5a7a;
+
+  background-color: var(--bg) !important;
+  color: var(--text) !important;
+}
+
+/* ── Global overrides ── */
+body.nestui-active.nestui-obsidian,
+body.nestui-active.nestui-obsidian * {
+  --hl-primary-color: #00d4ff !important;
+  --hl-bg-color: #030508 !important;
+  --hl-text-color: #e8f4ff !important;
+  --hl-border-color: rgba(99,179,237,0.08) !important;
+}
+
+/* ── Sidebar / Navigation ── */
+body.nestui-active.nestui-obsidian .hl-sidebar,
+body.nestui-active.nestui-obsidian [class*="sidebar"],
+body.nestui-active.nestui-obsidian nav {
+  background-color: var(--bg1) !important;
+  border-color: var(--border) !important;
+}
+
+body.nestui-active.nestui-obsidian .hl-sidebar a,
+body.nestui-active.nestui-obsidian [class*="sidebar"] a {
+  color: var(--text2) !important;
+}
+
+body.nestui-active.nestui-obsidian .hl-sidebar a.active,
+body.nestui-active.nestui-obsidian .hl-sidebar a[aria-current="page"],
+body.nestui-active.nestui-obsidian [class*="sidebar"] a.active {
+  color: var(--accent) !important;
+  background-color: var(--accent-soft) !important;
+}
+
+/* ── Top bar / Header ── */
+body.nestui-active.nestui-obsidian .hl-header,
+body.nestui-active.nestui-obsidian header,
+body.nestui-active.nestui-obsidian [class*="topbar"],
+body.nestui-active.nestui-obsidian [class*="top-bar"] {
+  background-color: var(--bg1) !important;
+  border-bottom-color: var(--border) !important;
+}
+
+/* ── Cards & Surfaces ── */
+body.nestui-active.nestui-obsidian .hl-card,
+body.nestui-active.nestui-obsidian [class*="card"],
+body.nestui-active.nestui-obsidian .hl-panel {
+  background-color: var(--surface) !important;
+  border-color: var(--border) !important;
+  color: var(--text) !important;
+}
+
+/* ── Tables ── */
+body.nestui-active.nestui-obsidian table,
+body.nestui-active.nestui-obsidian .hl-table {
+  background-color: var(--bg1) !important;
+}
+
+body.nestui-active.nestui-obsidian th {
+  background-color: var(--bg2) !important;
+  color: var(--text2) !important;
+  border-color: var(--border) !important;
+}
+
+body.nestui-active.nestui-obsidian td {
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+
+/* ── Buttons ── */
+body.nestui-active.nestui-obsidian .hl-btn-primary,
+body.nestui-active.nestui-obsidian [class*="btn-primary"],
+body.nestui-active.nestui-obsidian button[type="submit"] {
+  background-color: var(--accent) !important;
+  color: #030508 !important;
+  border: none !important;
+}
+
+body.nestui-active.nestui-obsidian .hl-btn-secondary,
+body.nestui-active.nestui-obsidian [class*="btn-secondary"] {
+  background-color: var(--surface) !important;
+  color: var(--accent) !important;
+  border: 1px solid var(--border) !important;
+}
+
+/* ── Inputs ── */
+body.nestui-active.nestui-obsidian input,
+body.nestui-active.nestui-obsidian select,
+body.nestui-active.nestui-obsidian textarea {
+  background-color: var(--bg2) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+
+body.nestui-active.nestui-obsidian input::placeholder,
+body.nestui-active.nestui-obsidian textarea::placeholder {
+  color: var(--text3) !important;
+}
+
+/* ── Links ── */
+body.nestui-active.nestui-obsidian a {
+  color: var(--accent) !important;
+}
+
+/* ── Badges & Tags ── */
+body.nestui-active.nestui-obsidian .hl-badge,
+body.nestui-active.nestui-obsidian [class*="badge"] {
+  background-color: var(--accent-soft) !important;
+  color: var(--accent) !important;
+}
+
+/* ── Modals & Dropdowns ── */
+body.nestui-active.nestui-obsidian [class*="modal"],
+body.nestui-active.nestui-obsidian [class*="dropdown-menu"],
+body.nestui-active.nestui-obsidian [class*="popover"] {
+  background-color: var(--surface) !important;
+  border-color: var(--border) !important;
+  color: var(--text) !important;
+}
+
+/* ── Scrollbar ── */
+body.nestui-active.nestui-obsidian ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+body.nestui-active.nestui-obsidian ::-webkit-scrollbar-track {
+  background: var(--bg) !important;
+}
+
+body.nestui-active.nestui-obsidian ::-webkit-scrollbar-thumb {
+  background: var(--text3) !important;
+  border-radius: 3px;
+}
+
+/* ── Typography ── */
+body.nestui-active.nestui-obsidian h1,
+body.nestui-active.nestui-obsidian h2,
+body.nestui-active.nestui-obsidian h3,
+body.nestui-active.nestui-obsidian h4 {
+  color: var(--text) !important;
+}
+
+body.nestui-active.nestui-obsidian p,
+body.nestui-active.nestui-obsidian span,
+body.nestui-active.nestui-obsidian label {
+  color: var(--text2) !important;
+}
