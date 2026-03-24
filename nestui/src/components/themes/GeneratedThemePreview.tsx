@@ -1,4 +1,5 @@
 import type { Theme } from '../../lib/themes'
+import ThemePreview from './ThemePreview'
 
 interface GeneratedThemePreviewProps {
   theme: Theme
@@ -38,100 +39,12 @@ export default function GeneratedThemePreview({ theme, onApply, onRegenerate, ap
         <p className="text-sm text-nestui-text2">{theme.desc}</p>
       </div>
 
-      {/* Mini dashboard mockup */}
+      {/* Premium dashboard preview */}
       <div
-        className="rounded-xl overflow-hidden"
+        className="rounded-xl overflow-hidden h-[220px]"
         style={{ border: `1px solid ${colors.border}`, boxShadow: `0 0 30px ${colors.accent}08` }}
       >
-        {/* Mockup top bar */}
-        <div
-          className="flex items-center gap-2 px-4 py-2.5"
-          style={{ backgroundColor: colors.bg1, borderBottom: `1px solid ${colors.border}` }}
-        >
-          <div className="w-3 h-3 rounded-full" style={{ backgroundColor: colors.accent }} />
-          <div className="h-2 w-16 rounded" style={{ backgroundColor: colors.text3 }} />
-          <div className="ml-auto flex gap-1.5">
-            <div className="w-2 h-2 rounded-full" style={{ backgroundColor: colors.text3 }} />
-            <div className="w-2 h-2 rounded-full" style={{ backgroundColor: colors.text3 }} />
-          </div>
-        </div>
-
-        <div className="flex" style={{ backgroundColor: colors.bg }}>
-          {/* Mockup sidebar */}
-          <div
-            className="w-14 min-h-[180px] flex flex-col items-center gap-3 py-4"
-            style={{ backgroundColor: colors.bg1, borderRight: `1px solid ${colors.border}` }}
-          >
-            {[1, 2, 3, 4].map((i) => (
-              <div
-                key={i}
-                className="w-6 h-6 rounded"
-                style={{
-                  backgroundColor: i === 1 ? colors.accentSoft : 'transparent',
-                  border: i === 1 ? 'none' : `1px solid ${colors.border}`,
-                }}
-              >
-                {i === 1 && (
-                  <div className="w-full h-full flex items-center justify-center">
-                    <div className="w-2.5 h-2.5 rounded-sm" style={{ backgroundColor: colors.accent }} />
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-
-          {/* Mockup main area */}
-          <div className="flex-1 p-4 space-y-3">
-            <div className="flex items-center justify-between">
-              <div className="h-3 w-24 rounded" style={{ backgroundColor: colors.text }} />
-              <div
-                className="h-6 w-16 rounded-md flex items-center justify-center"
-                style={{ backgroundColor: colors.accent }}
-              >
-                <div className="h-1.5 w-8 rounded" style={{ backgroundColor: colors.bg }} />
-              </div>
-            </div>
-
-            <div className="grid grid-cols-3 gap-2">
-              {[1, 2, 3].map((i) => (
-                <div
-                  key={i}
-                  className="rounded-lg p-3 space-y-2"
-                  style={{ backgroundColor: colors.surface, border: `1px solid ${colors.border}` }}
-                >
-                  <div className="h-2 w-10 rounded" style={{ backgroundColor: colors.text2 }} />
-                  <div className="h-4 w-14 rounded" style={{ backgroundColor: colors.text }} />
-                  <div className="h-1.5 w-full rounded" style={{ backgroundColor: colors.bg2 }}>
-                    <div
-                      className="h-full rounded"
-                      style={{ backgroundColor: colors.accent, width: `${30 + i * 20}%` }}
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div
-              className="rounded-lg overflow-hidden"
-              style={{ border: `1px solid ${colors.border}` }}
-            >
-              {[0, 1, 2].map((row) => (
-                <div
-                  key={row}
-                  className="flex items-center gap-3 px-3 py-2"
-                  style={{
-                    backgroundColor: row === 0 ? colors.bg1 : colors.surface,
-                    borderBottom: row < 2 ? `1px solid ${colors.border}` : 'none',
-                  }}
-                >
-                  <div className="w-5 h-5 rounded-full" style={{ backgroundColor: row === 0 ? colors.text3 : colors.accentSoft }} />
-                  <div className="h-2 w-20 rounded" style={{ backgroundColor: row === 0 ? colors.text3 : colors.text2 }} />
-                  <div className="h-2 w-12 rounded ml-auto" style={{ backgroundColor: colors.text3 }} />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+        <ThemePreview theme={theme} />
       </div>
 
       {/* Color swatches */}
