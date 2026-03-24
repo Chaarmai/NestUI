@@ -813,6 +813,47 @@ export default function CrmPreview() {
                     </div>
                   </div>
 
+                  {/* ── Horizontal tab nav ────────── */}
+                  <div
+                    className="flex items-center gap-0 px-4 sm:px-6 overflow-x-auto"
+                    style={{
+                      backgroundColor: s.surface,
+                      borderBottom: `1px solid ${s.border}`,
+                    }}
+                  >
+                    {navItems.map((item) => (
+                      <div
+                        key={item.label}
+                        className="flex items-center gap-1.5 px-3 py-2.5 relative shrink-0"
+                        style={{ cursor: 'default' }}
+                      >
+                        <SvgIcon
+                          size={12}
+                          color={item.active ? s.accent : s.text4}
+                          strokeWidth={item.active ? 1.8 : 1.4}
+                        >
+                          {item.icon}
+                        </SvgIcon>
+                        <span
+                          className="text-[10px]"
+                          style={{
+                            color: item.active ? s.accent : s.text3,
+                            fontWeight: item.active ? 600 : 450,
+                          }}
+                        >
+                          {item.label}
+                        </span>
+                        {/* Active underline indicator */}
+                        {item.active && (
+                          <div
+                            className="absolute bottom-0 left-2 right-2 h-[2px] rounded-full"
+                            style={{ backgroundColor: s.accent }}
+                          />
+                        )}
+                      </div>
+                    ))}
+                  </div>
+
                   {/* Dashboard content */}
                   <div
                     className="flex-1 p-4 sm:p-5 space-y-4 overflow-hidden relative"
