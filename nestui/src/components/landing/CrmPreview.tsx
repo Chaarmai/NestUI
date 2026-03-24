@@ -489,7 +489,7 @@ function FloatingToast() {
 function FloatingAiBubble() {
   return (
     <div
-      className="absolute -left-2 sm:-left-4 bottom-[40px] sm:bottom-[50px] z-20 animate-fade-in"
+      className="absolute -right-2 sm:-right-4 bottom-[40px] sm:bottom-[50px] z-20 animate-fade-in"
       style={{ animationDelay: '1.2s' }}
     >
       <div
@@ -627,167 +627,66 @@ export default function CrmPreview() {
               />
 
               {/* ── CRM body ────────────────────── */}
-              <div className="flex" style={{ backgroundColor: s.bg, minHeight: 420 }}>
-                {/* ── Left sidebar ─────────────── */}
-                <div
-                  className="hidden sm:flex flex-col shrink-0"
-                  style={{
-                    width: 192,
-                    backgroundColor: s.bg1,
-                    borderRight: `1px solid ${s.border}`,
-                  }}
-                >
-                  {/* Sidebar header */}
-                  <div
-                    className="flex items-center gap-2.5 px-4 py-3.5"
-                    style={{ borderBottom: `1px solid ${s.border}` }}
-                  >
-                    <div
-                      className="w-7 h-7 rounded-lg flex items-center justify-center text-[11px] font-bold text-white"
-                      style={{
-                        background: `linear-gradient(135deg, ${s.accent}, #2d5039)`,
-                        boxShadow: `0 2px 6px ${s.accent}30`,
-                      }}
-                    >
-                      A
-                    </div>
-                    <div>
-                      <span className="text-[12px] font-semibold block leading-tight" style={{ color: s.text }}>
-                        Apex Digital
-                      </span>
-                      <span className="text-[8px] font-medium" style={{ color: s.text3 }}>
-                        Pro Plan
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Nav items */}
-                  <nav className="flex-1 py-3 px-2.5 space-y-0.5">
-                    {navItems.map((item) => (
-                      <div
-                        key={item.label}
-                        className="flex items-center gap-2.5 px-2.5 py-[7px] rounded-lg transition-colors"
-                        style={{
-                          backgroundColor: item.active ? s.accentMedium : 'transparent',
-                        }}
-                      >
-                        <SvgIcon
-                          size={15}
-                          color={item.active ? s.accent : s.text3}
-                          strokeWidth={item.active ? 1.8 : 1.5}
-                        >
-                          {item.icon}
-                        </SvgIcon>
-                        <span
-                          className="text-[11px]"
-                          style={{
-                            color: item.active ? s.accent : s.text2,
-                            fontWeight: item.active ? 600 : 500,
-                          }}
-                        >
-                          {item.label}
-                        </span>
-                      </div>
-                    ))}
-                  </nav>
-
-                  {/* Upgrade badge */}
-                  <div className="px-3 pb-2">
-                    <div
-                      className="rounded-lg px-3 py-2 text-center"
-                      style={{
-                        background: `linear-gradient(135deg, ${s.accentSoft}, rgba(61,107,79,0.03))`,
-                        border: `1px solid ${s.accent}15`,
-                      }}
-                    >
-                      <p className="text-[8px] font-semibold" style={{ color: s.accent }}>
-                        Upgrade to Agency
-                      </p>
-                      <p className="text-[7px] mt-0.5" style={{ color: s.text3 }}>
-                        Unlock custom themes
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Sidebar footer */}
-                  <div
-                    className="px-3 py-3 flex items-center gap-2.5"
-                    style={{ borderTop: `1px solid ${s.border}` }}
-                  >
-                    <div
-                      className="w-7 h-7 rounded-full flex items-center justify-center text-[9px] font-bold text-white ring-2 ring-white/60"
-                      style={{ background: 'linear-gradient(135deg, #b8a088, #96816a)' }}
-                    >
-                      JD
-                    </div>
-                    <div className="min-w-0">
-                      <p className="text-[10px] font-semibold truncate" style={{ color: s.text }}>
-                        James Donovan
-                      </p>
-                      <p className="text-[8px]" style={{ color: s.text3 }}>
-                        james@apexdigital.com
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* ── Main content ─────────────── */}
-                <div className="flex-1 min-w-0 flex flex-col">
+              <div className="flex flex-col" style={{ backgroundColor: s.bg, minHeight: 420 }}>
                   {/* Top bar */}
                   <div
-                    className="flex items-center justify-between px-4 sm:px-6 py-3"
+                    className="flex items-center justify-between px-4 sm:px-6 py-2.5"
                     style={{
                       borderBottom: `1px solid ${s.border}`,
                       backgroundColor: s.surface,
                       boxShadow: '0 1px 3px rgba(0,0,0,0.02)',
                     }}
                   >
-                    <div className="flex items-center gap-2 sm:hidden">
+                    {/* Left: Branding */}
+                    <div className="flex items-center gap-2.5">
                       <div
-                        className="w-5 h-5 rounded flex items-center justify-center text-[8px] font-bold text-white"
-                        style={{ backgroundColor: s.accent }}
+                        className="w-7 h-7 rounded-lg flex items-center justify-center text-[11px] font-bold text-white"
+                        style={{
+                          background: `linear-gradient(135deg, ${s.accent}, #2d5039)`,
+                          boxShadow: `0 2px 6px ${s.accent}30`,
+                        }}
                       >
                         A
                       </div>
-                      <span className="text-[11px] font-semibold" style={{ color: s.text }}>
+                      <div className="hidden sm:block">
+                        <span className="text-[12px] font-semibold block leading-tight" style={{ color: s.text }}>
+                          Apex Digital
+                        </span>
+                        <span className="text-[8px] font-medium" style={{ color: s.text3 }}>
+                          Pro Plan
+                        </span>
+                      </div>
+                      <span className="sm:hidden text-[11px] font-semibold" style={{ color: s.text }}>
                         Apex Digital
                       </span>
                     </div>
-                    <div className="hidden sm:flex items-center gap-3">
-                      <h2 className="text-[14px] font-semibold" style={{ color: s.text }}>
-                        Dashboard
-                      </h2>
+
+                    {/* Center: Search */}
+                    <div
+                      className="hidden md:flex items-center gap-2 rounded-lg px-3 py-1.5"
+                      style={{
+                        backgroundColor: s.bg,
+                        border: `1px solid ${s.border}`,
+                        boxShadow: 'inset 0 1px 2px rgba(0,0,0,0.02)',
+                      }}
+                    >
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={s.text4} strokeWidth="2" strokeLinecap="round">
+                        <circle cx="11" cy="11" r="8" />
+                        <path d="M21 21l-4.35-4.35" />
+                      </svg>
+                      <span className="text-[10px]" style={{ color: s.text4 }}>
+                        Search contacts...
+                      </span>
                       <span
-                        className="text-[8px] font-medium px-2 py-0.5 rounded-md"
-                        style={{ backgroundColor: s.bg1, color: s.text3 }}
+                        className="text-[8px] font-mono px-1 py-0.5 rounded"
+                        style={{ backgroundColor: s.bg1, color: s.text4, border: `1px solid ${s.border}` }}
                       >
-                        Last 30 days
+                        /
                       </span>
                     </div>
+
+                    {/* Right: Bell + User */}
                     <div className="flex items-center gap-3">
-                      {/* Search */}
-                      <div
-                        className="hidden md:flex items-center gap-2 rounded-lg px-3 py-1.5"
-                        style={{
-                          backgroundColor: s.bg,
-                          border: `1px solid ${s.border}`,
-                          boxShadow: 'inset 0 1px 2px rgba(0,0,0,0.02)',
-                        }}
-                      >
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={s.text4} strokeWidth="2" strokeLinecap="round">
-                          <circle cx="11" cy="11" r="8" />
-                          <path d="M21 21l-4.35-4.35" />
-                        </svg>
-                        <span className="text-[10px]" style={{ color: s.text4 }}>
-                          Search contacts...
-                        </span>
-                        <span
-                          className="text-[8px] font-mono px-1 py-0.5 rounded"
-                          style={{ backgroundColor: s.bg1, color: s.text4, border: `1px solid ${s.border}` }}
-                        >
-                          /
-                        </span>
-                      </div>
                       {/* Bell */}
                       <div
                         className="relative w-7 h-7 rounded-lg flex items-center justify-center"
@@ -803,12 +702,22 @@ export default function CrmPreview() {
                           3
                         </div>
                       </div>
-                      {/* Avatar */}
-                      <div
-                        className="w-7 h-7 rounded-full flex items-center justify-center text-[9px] font-bold text-white ring-2 ring-white/60"
-                        style={{ background: 'linear-gradient(135deg, #b8a088, #96816a)' }}
-                      >
-                        JD
+                      {/* User */}
+                      <div className="flex items-center gap-2">
+                        <div
+                          className="w-7 h-7 rounded-full flex items-center justify-center text-[9px] font-bold text-white ring-2 ring-white/60"
+                          style={{ background: 'linear-gradient(135deg, #b8a088, #96816a)' }}
+                        >
+                          JD
+                        </div>
+                        <div className="hidden sm:block">
+                          <p className="text-[10px] font-semibold leading-tight" style={{ color: s.text }}>
+                            James Donovan
+                          </p>
+                          <p className="text-[8px]" style={{ color: s.text3 }}>
+                            Admin
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -1013,7 +922,6 @@ export default function CrmPreview() {
                       </div>
                     </div>
                   </div>
-                </div>
               </div>
             </div>
           </div>
