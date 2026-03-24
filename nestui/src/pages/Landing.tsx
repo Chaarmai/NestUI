@@ -1,12 +1,27 @@
 import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 import HeroSection from '../components/landing/HeroSection'
 import ThemeShowcase from '../components/landing/ThemeShowcase'
 import PricingSection from '../components/landing/PricingSection'
 import Footer from '../components/landing/Footer'
 
 function LandingNav() {
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/[0.04] bg-nestui-bg/60 backdrop-blur-xl">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled
+          ? 'bg-nestui-bg/70 backdrop-blur-2xl border-b border-white/[0.06] shadow-[0_0_30px_rgba(0,0,0,0.3)]'
+          : 'bg-transparent border-b border-transparent'
+      }`}
+    >
       <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-4 sm:px-6">
         <Link to="/" className="flex items-center gap-2.5">
           <div className="relative flex h-7 w-7 items-center justify-center">
@@ -22,10 +37,10 @@ function LandingNav() {
         </Link>
 
         <nav className="hidden sm:flex items-center gap-6">
-          <a href="#themes" className="text-sm text-nestui-text2 hover:text-nestui-text transition-colors cursor-pointer">
+          <a href="#themes" className="text-sm text-nestui-text2 hover:text-nestui-text transition-colors duration-300 cursor-pointer">
             Themes
           </a>
-          <a href="#pricing" className="text-sm text-nestui-text2 hover:text-nestui-text transition-colors cursor-pointer">
+          <a href="#pricing" className="text-sm text-nestui-text2 hover:text-nestui-text transition-colors duration-300 cursor-pointer">
             Pricing
           </a>
         </nav>
@@ -33,13 +48,13 @@ function LandingNav() {
         <div className="flex items-center gap-3">
           <Link
             to="/login"
-            className="text-sm text-nestui-text2 hover:text-nestui-text transition-colors cursor-pointer"
+            className="text-sm text-nestui-text2 hover:text-nestui-text transition-colors duration-300 cursor-pointer"
           >
             Sign in
           </Link>
           <Link
             to="/login"
-            className="rounded-lg bg-nestui-blue/10 border border-nestui-blue/20 px-3.5 py-1.5 text-sm font-medium text-nestui-blue hover:bg-nestui-blue/15 hover:shadow-[0_0_15px_rgba(91,143,255,0.1)] transition-all cursor-pointer"
+            className="rounded-lg bg-nestui-blue/10 border border-nestui-blue/20 px-3.5 py-1.5 text-sm font-medium text-nestui-blue hover:bg-nestui-blue/15 hover:border-nestui-blue/30 hover:shadow-[0_0_20px_rgba(91,143,255,0.15)] transition-all duration-300 cursor-pointer"
           >
             Get Started
           </Link>
