@@ -45,7 +45,7 @@ export const PLANS: PlanDefinition[] = [
     stripeMonthlyPriceId: null,
     stripeAnnualPriceId: null,
     features: [
-      '3 themes',
+      'Starter themes',
       '1 sub-account',
       'Community support',
     ],
@@ -59,7 +59,7 @@ export const PLANS: PlanDefinition[] = [
     stripeAnnualPriceId: STRIPE_PRICES.pro_annual,
     popular: true,
     features: [
-      'All 9 themes',
+      'All themes',
       '5 sub-accounts',
       'AI theme generator',
       'Priority support',

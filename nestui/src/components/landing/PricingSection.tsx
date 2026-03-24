@@ -21,7 +21,7 @@ const PLANS: Plan[] = [
     price: '$0',
     period: '/mo',
     features: [
-      { text: '3 themes', included: true },
+      { text: 'Starter themes', included: true },
       { text: '1 sub-account', included: true },
       { text: 'Community support', included: true },
       { text: 'AI Theme Generator', included: false },
@@ -35,7 +35,7 @@ const PLANS: Plan[] = [
     highlighted: true,
     badge: 'Most Popular',
     features: [
-      { text: 'All 9 themes', included: true },
+      { text: 'All themes', included: true },
       { text: '5 sub-accounts', included: true },
       { text: 'Priority support', included: true },
       { text: 'AI Theme Generator', included: true },
@@ -47,7 +47,7 @@ const PLANS: Plan[] = [
     price: '$399',
     period: '/mo',
     features: [
-      { text: 'All 9 + custom themes', included: true },
+      { text: 'All themes + custom', included: true },
       { text: 'Unlimited sub-accounts', included: true },
       { text: 'Priority support', included: true },
       { text: 'AI Theme Generator', included: true },

@@ -91,7 +91,7 @@ export default function ThemeShowcase() {
         >
           <p className="text-nestui-blue text-xs font-semibold uppercase tracking-[0.2em] mb-4">Theme Engine</p>
           <h2 className="text-4xl sm:text-5xl font-bold text-nestui-text mb-5 tracking-tight">
-            9 Premium Skins. Built to Impress.
+            A Growing Library of Premium Skins.
           </h2>
           <p className="text-nestui-text2 text-lg max-w-2xl mx-auto leading-relaxed">
             Every theme rewires navigation, typography, colors, and layout — so your dashboard

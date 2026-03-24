@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import HeroSection from '../components/landing/HeroSection'
 import CrmPreview from '../components/landing/CrmPreview'
+import AiThemeGeneratorShowcase from '../components/landing/AiThemeGeneratorShowcase'
 import ThemeShowcase from '../components/landing/ThemeShowcase'
 import PricingSection from '../components/landing/PricingSection'
 import Footer from '../components/landing/Footer'
@@ -71,6 +72,7 @@ export default function Landing() {
       <LandingNav />
       <HeroSection />
       <CrmPreview />
+      <AiThemeGeneratorShowcase />
       <ThemeShowcase />
       <PricingSection />
       <Footer />

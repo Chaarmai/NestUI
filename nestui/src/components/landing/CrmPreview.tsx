@@ -930,7 +930,7 @@ export default function CrmPreview() {
         {/* Caption */}
         <p className="text-center mt-8 sm:mt-10 text-sm text-nestui-text3">
           This is Nest with the <span className="text-nestui-text2 font-medium">Silk</span> theme.
-          Choose from 12+ themes or build your own.
+          Choose from our growing theme library — or let AI build one for you.
         </p>
       </div>
     </section>
