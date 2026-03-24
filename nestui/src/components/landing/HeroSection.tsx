@@ -44,14 +44,14 @@ export default function HeroSection() {
 
         {/* Headline */}
         <h1 className="text-5xl sm:text-6xl lg:text-[4.5rem] font-bold leading-[1.08] mb-7 tracking-tight animate-slide-up">
-          <span className="text-nestui-text">The CRM </span>
-          <span className="hero-gradient-text">Glow-Up.</span>
+          <span className="text-nestui-text">Stop Looking Like </span>
+          <span className="hero-gradient-text">Everyone Else.</span>
         </h1>
 
         {/* Subheadline */}
         <p className="text-lg sm:text-xl text-nestui-text2 max-w-2xl mx-auto mb-12 leading-relaxed animate-slide-up" style={{ animationDelay: '0.1s' }}>
-          Premium skins and AI-powered themes that transform your dashboard
-          into something clients actually remember.
+          Your agency is one of a kind. Your CRM should be too. Premium themes
+          and AI-powered designs that match your brand.
         </p>
 
         {/* CTAs */}
