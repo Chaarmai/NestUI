@@ -44,15 +44,14 @@ export default function HeroSection() {
 
         {/* Headline */}
         <h1 className="text-5xl sm:text-6xl lg:text-[4.5rem] font-bold leading-[1.08] mb-7 tracking-tight animate-slide-up">
-          <span className="text-nestui-text">Your CRM. Your Brand.</span>
-          <br />
-          <span className="hero-gradient-text">Zero Trace of GHL.</span>
+          <span className="text-nestui-text">The CRM </span>
+          <span className="hero-gradient-text">Glow-Up.</span>
         </h1>
 
         {/* Subheadline */}
         <p className="text-lg sm:text-xl text-nestui-text2 max-w-2xl mx-auto mb-12 leading-relaxed animate-slide-up" style={{ animationDelay: '0.1s' }}>
-          Premium dashboard skins that make GoHighLevel unrecognizable. One script tag.
-          Instant transformation. Your clients see your brand — never theirs.
+          Premium skins and AI-powered themes that transform your dashboard
+          into something clients actually remember.
         </p>
 
         {/* CTAs */}
