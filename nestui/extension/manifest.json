@@ -10,6 +10,9 @@
     "*://*.msgsndr.com/*",
     "*://*/*"
   ],
+  "background": {
+    "service_worker": "background.js"
+  },
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
@@ -28,7 +31,8 @@
       "matches": [
         "*://*.gohighlevel.com/*",
         "*://*.leadconnectorhq.com/*",
-        "*://*.msgsndr.com/*"
+        "*://*.msgsndr.com/*",
+        "*://*.chaarmai.com/*"
       ],
       "js": ["content.js"],
       "run_at": "document_idle"

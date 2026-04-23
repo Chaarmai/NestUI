@@ -4,150 +4,405 @@
  * Nav: Left Sidebar
  */
 
+/* ═══ CSS Custom Properties ═══ */
 body.nestui-active.nestui-aurora {
-  --bg: #f5f4f0;
-  --bg1: #eeedea;
-  --bg2: #ffffff;
-  --surface: #fafaf8;
-  --border: rgba(0,0,0,0.07);
-  --accent: #7c5cfc;
-  --accent-soft: rgba(124,92,252,0.08);
-  --text: #111110;
-  --text2: #6b6b67;
-  --text3: #ababab;
-
-  background-color: var(--bg) !important;
-  color: var(--text) !important;
+  --nestui-bg: #f5f4f0;
+  --nestui-bg1: #eeedea;
+  --nestui-bg2: #ffffff;
+  --nestui-surface: #fafaf8;
+  --nestui-border: rgba(0,0,0,0.07);
+  --nestui-accent: #7c5cfc;
+  --nestui-accent-hover: #6a48e8;
+  --nestui-accent-soft: rgba(124,92,252,0.08);
+  --nestui-accent-soft2: rgba(124,92,252,0.15);
+  --nestui-text: #111110;
+  --nestui-text2: #6b6b67;
+  --nestui-text3: #ababab;
+  --nestui-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.03);
 }
 
+/* ═══ Global Overrides ═══ */
+body.nestui-active.nestui-aurora {
+  background-color: var(--nestui-bg) !important;
+  color: var(--nestui-text) !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+/* Override GHL's CSS variables globally */
 body.nestui-active.nestui-aurora,
-body.nestui-active.nestui-aurora * {
-  --hl-primary-color: #7c5cfc !important;
-  --hl-bg-color: #f5f4f0 !important;
-  --hl-text-color: #111110 !important;
-  --hl-border-color: rgba(0,0,0,0.07) !important;
+body.nestui-active.nestui-aurora *,
+body.nestui-active.nestui-aurora *::before,
+body.nestui-active.nestui-aurora *::after {
+  --primary-color: #7c5cfc !important;
+  --app-primary: #7c5cfc !important;
+  --primary: #7c5cfc !important;
+  --primary-500: #7c5cfc !important;
+  --primary-600: #6a48e8 !important;
+  --primary-700: #5835d4 !important;
+  --primary-400: #9a7ffd !important;
+  --primary-300: #b8a5fe !important;
+  --primary-200: #d6ccfe !important;
+  --primary-100: #ece8ff !important;
+  --primary-50: #f5f3ff !important;
 }
 
-body.nestui-active.nestui-aurora .hl-sidebar,
+/* ═══ Left Sidebar / Navigation ═══ */
+
+/* Main sidebar container */
+body.nestui-active.nestui-aurora #sidebar,
+body.nestui-active.nestui-aurora .sidebar,
+body.nestui-active.nestui-aurora [id*="sidebar"],
 body.nestui-active.nestui-aurora [class*="sidebar"],
-body.nestui-active.nestui-aurora nav {
-  background-color: var(--bg1) !important;
-  border-color: var(--border) !important;
+body.nestui-active.nestui-aurora [class*="Sidebar"],
+body.nestui-active.nestui-aurora [class*="side-bar"],
+body.nestui-active.nestui-aurora [class*="left-menu"],
+body.nestui-active.nestui-aurora [class*="LeftMenu"],
+body.nestui-active.nestui-aurora [class*="nav-menu"],
+body.nestui-active.nestui-aurora [class*="NavMenu"],
+body.nestui-active.nestui-aurora aside,
+body.nestui-active.nestui-aurora nav[class*="vertical"] {
+  background-color: var(--nestui-bg1) !important;
+  border-right: 1px solid var(--nestui-border) !important;
+  color: var(--nestui-text2) !important;
 }
 
-body.nestui-active.nestui-aurora .hl-sidebar a,
-body.nestui-active.nestui-aurora [class*="sidebar"] a {
-  color: var(--text2) !important;
+/* Sidebar links */
+body.nestui-active.nestui-aurora #sidebar a,
+body.nestui-active.nestui-aurora .sidebar a,
+body.nestui-active.nestui-aurora [class*="sidebar"] a,
+body.nestui-active.nestui-aurora [class*="Sidebar"] a,
+body.nestui-active.nestui-aurora [class*="nav-menu"] a,
+body.nestui-active.nestui-aurora aside a {
+  color: var(--nestui-text2) !important;
+  transition: all 0.15s ease !important;
 }
 
-body.nestui-active.nestui-aurora .hl-sidebar a.active,
-body.nestui-active.nestui-aurora .hl-sidebar a[aria-current="page"],
-body.nestui-active.nestui-aurora [class*="sidebar"] a.active {
-  color: var(--accent) !important;
-  background-color: var(--accent-soft) !important;
+body.nestui-active.nestui-aurora #sidebar a:hover,
+body.nestui-active.nestui-aurora .sidebar a:hover,
+body.nestui-active.nestui-aurora [class*="sidebar"] a:hover,
+body.nestui-active.nestui-aurora aside a:hover {
+  color: var(--nestui-accent) !important;
+  background-color: var(--nestui-accent-soft) !important;
 }
 
-body.nestui-active.nestui-aurora .hl-header,
+/* Active nav item */
+body.nestui-active.nestui-aurora #sidebar a.active,
+body.nestui-active.nestui-aurora #sidebar a.router-link-active,
+body.nestui-active.nestui-aurora [class*="sidebar"] a.active,
+body.nestui-active.nestui-aurora [class*="sidebar"] a.router-link-active,
+body.nestui-active.nestui-aurora [class*="sidebar"] a[aria-current="page"],
+body.nestui-active.nestui-aurora [class*="sidebar"] .active,
+body.nestui-active.nestui-aurora [class*="sidebar"] [class*="active"],
+body.nestui-active.nestui-aurora aside a.active,
+body.nestui-active.nestui-aurora aside a.router-link-active,
+body.nestui-active.nestui-aurora aside [class*="active"] {
+  color: var(--nestui-accent) !important;
+  background-color: var(--nestui-accent-soft2) !important;
+  font-weight: 600 !important;
+}
+
+/* Sidebar icons */
+body.nestui-active.nestui-aurora #sidebar svg,
+body.nestui-active.nestui-aurora [class*="sidebar"] svg,
+body.nestui-active.nestui-aurora aside svg {
+  color: inherit !important;
+  fill: currentColor !important;
+}
+
+/* ═══ Top Header / Navbar ═══ */
 body.nestui-active.nestui-aurora header,
 body.nestui-active.nestui-aurora [class*="topbar"],
-body.nestui-active.nestui-aurora [class*="top-bar"] {
-  background-color: var(--bg2) !important;
-  border-bottom-color: var(--border) !important;
+body.nestui-active.nestui-aurora [class*="Topbar"],
+body.nestui-active.nestui-aurora [class*="top-bar"],
+body.nestui-active.nestui-aurora [class*="TopBar"],
+body.nestui-active.nestui-aurora [class*="navbar"],
+body.nestui-active.nestui-aurora [class*="Navbar"],
+body.nestui-active.nestui-aurora [class*="header-bar"],
+body.nestui-active.nestui-aurora [class*="app-header"] {
+  background-color: var(--nestui-bg2) !important;
+  border-bottom: 1px solid var(--nestui-border) !important;
+  color: var(--nestui-text) !important;
+  box-shadow: var(--nestui-shadow) !important;
 }
 
-body.nestui-active.nestui-aurora .hl-card,
+/* ═══ Main Content Area ═══ */
+body.nestui-active.nestui-aurora main,
+body.nestui-active.nestui-aurora [class*="main-content"],
+body.nestui-active.nestui-aurora [class*="MainContent"],
+body.nestui-active.nestui-aurora [class*="content-area"],
+body.nestui-active.nestui-aurora [class*="page-content"],
+body.nestui-active.nestui-aurora [class*="PageContent"],
+body.nestui-active.nestui-aurora [class*="app-content"],
+body.nestui-active.nestui-aurora #app > div > div:last-child,
+body.nestui-active.nestui-aurora [id*="main"] {
+  background-color: var(--nestui-bg) !important;
+}
+
+/* ═══ Cards & Panels ═══ */
 body.nestui-active.nestui-aurora [class*="card"],
-body.nestui-active.nestui-aurora .hl-panel {
-  background-color: var(--surface) !important;
-  border-color: var(--border) !important;
-  color: var(--text) !important;
+body.nestui-active.nestui-aurora [class*="Card"],
+body.nestui-active.nestui-aurora [class*="panel"],
+body.nestui-active.nestui-aurora [class*="Panel"],
+body.nestui-active.nestui-aurora [class*="widget"],
+body.nestui-active.nestui-aurora [class*="Widget"],
+body.nestui-active.nestui-aurora [class*="tile"],
+body.nestui-active.nestui-aurora .bg-white,
+body.nestui-active.nestui-aurora [class*="bg-white"] {
+  background-color: var(--nestui-bg2) !important;
+  border: 1px solid var(--nestui-border) !important;
+  border-radius: 12px !important;
+  box-shadow: var(--nestui-shadow) !important;
+  color: var(--nestui-text) !important;
 }
 
-body.nestui-active.nestui-aurora table,
-body.nestui-active.nestui-aurora .hl-table {
-  background-color: var(--bg2) !important;
+/* ═══ Buttons ═══ */
+
+/* Primary buttons */
+body.nestui-active.nestui-aurora [class*="btn-primary"],
+body.nestui-active.nestui-aurora [class*="btn--primary"],
+body.nestui-active.nestui-aurora [class*="BtnPrimary"],
+body.nestui-active.nestui-aurora button[class*="primary"],
+body.nestui-active.nestui-aurora .bg-primary,
+body.nestui-active.nestui-aurora [class*="bg-primary"] {
+  background-color: var(--nestui-accent) !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 8px !important;
+  box-shadow: 0 1px 2px rgba(124,92,252,0.2) !important;
 }
 
+body.nestui-active.nestui-aurora [class*="btn-primary"]:hover,
+body.nestui-active.nestui-aurora button[class*="primary"]:hover {
+  background-color: var(--nestui-accent-hover) !important;
+  box-shadow: 0 4px 12px rgba(124,92,252,0.3) !important;
+}
+
+/* Secondary/outline buttons */
+body.nestui-active.nestui-aurora [class*="btn-secondary"],
+body.nestui-active.nestui-aurora [class*="btn-outline"],
+body.nestui-active.nestui-aurora [class*="btn--secondary"] {
+  background-color: var(--nestui-bg2) !important;
+  color: var(--nestui-accent) !important;
+  border: 1px solid var(--nestui-border) !important;
+  border-radius: 8px !important;
+}
+
+/* ═══ Tables ═══ */
+body.nestui-active.nestui-aurora table {
+  background-color: var(--nestui-bg2) !important;
+  border-color: var(--nestui-border) !important;
+}
+
+body.nestui-active.nestui-aurora thead,
 body.nestui-active.nestui-aurora th {
-  background-color: var(--bg1) !important;
-  color: var(--text2) !important;
-  border-color: var(--border) !important;
+  background-color: var(--nestui-bg1) !important;
+  color: var(--nestui-text2) !important;
+  border-color: var(--nestui-border) !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  font-size: 11px !important;
+  letter-spacing: 0.05em !important;
 }
 
 body.nestui-active.nestui-aurora td {
-  color: var(--text) !important;
-  border-color: var(--border) !important;
+  color: var(--nestui-text) !important;
+  border-color: var(--nestui-border) !important;
 }
 
-body.nestui-active.nestui-aurora .hl-btn-primary,
-body.nestui-active.nestui-aurora [class*="btn-primary"],
-body.nestui-active.nestui-aurora button[type="submit"] {
-  background-color: var(--accent) !important;
-  color: #ffffff !important;
-  border: none !important;
+body.nestui-active.nestui-aurora tr:hover td {
+  background-color: var(--nestui-accent-soft) !important;
 }
 
-body.nestui-active.nestui-aurora .hl-btn-secondary,
-body.nestui-active.nestui-aurora [class*="btn-secondary"] {
-  background-color: var(--surface) !important;
-  color: var(--accent) !important;
-  border: 1px solid var(--border) !important;
-}
-
+/* ═══ Form Elements ═══ */
 body.nestui-active.nestui-aurora input,
 body.nestui-active.nestui-aurora select,
-body.nestui-active.nestui-aurora textarea {
-  background-color: var(--bg2) !important;
-  color: var(--text) !important;
-  border-color: var(--border) !important;
+body.nestui-active.nestui-aurora textarea,
+body.nestui-active.nestui-aurora [class*="input"],
+body.nestui-active.nestui-aurora [class*="Input"],
+body.nestui-active.nestui-aurora [class*="select"],
+body.nestui-active.nestui-aurora [class*="Select"] {
+  background-color: var(--nestui-bg2) !important;
+  color: var(--nestui-text) !important;
+  border: 1px solid var(--nestui-border) !important;
+  border-radius: 8px !important;
+}
+
+body.nestui-active.nestui-aurora input:focus,
+body.nestui-active.nestui-aurora select:focus,
+body.nestui-active.nestui-aurora textarea:focus {
+  border-color: var(--nestui-accent) !important;
+  box-shadow: 0 0 0 3px var(--nestui-accent-soft) !important;
+  outline: none !important;
 }
 
 body.nestui-active.nestui-aurora input::placeholder,
 body.nestui-active.nestui-aurora textarea::placeholder {
-  color: var(--text3) !important;
+  color: var(--nestui-text3) !important;
 }
 
-body.nestui-active.nestui-aurora a {
-  color: var(--accent) !important;
+/* ═══ Typography ═══ */
+body.nestui-active.nestui-aurora h1,
+body.nestui-active.nestui-aurora h2,
+body.nestui-active.nestui-aurora h3,
+body.nestui-active.nestui-aurora h4,
+body.nestui-active.nestui-aurora h5,
+body.nestui-active.nestui-aurora h6 {
+  color: var(--nestui-text) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.01em !important;
 }
 
-body.nestui-active.nestui-aurora .hl-badge,
-body.nestui-active.nestui-aurora [class*="badge"] {
-  background-color: var(--accent-soft) !important;
-  color: var(--accent) !important;
+body.nestui-active.nestui-aurora p,
+body.nestui-active.nestui-aurora label,
+body.nestui-active.nestui-aurora [class*="label"],
+body.nestui-active.nestui-aurora [class*="description"],
+body.nestui-active.nestui-aurora [class*="subtitle"] {
+  color: var(--nestui-text2) !important;
 }
 
+/* ═══ Links ═══ */
+body.nestui-active.nestui-aurora a:not([class*="sidebar"]):not([class*="nav"]):not(aside a) {
+  color: var(--nestui-accent) !important;
+}
+
+/* ═══ Badges & Tags ═══ */
+body.nestui-active.nestui-aurora [class*="badge"],
+body.nestui-active.nestui-aurora [class*="Badge"],
+body.nestui-active.nestui-aurora [class*="tag"],
+body.nestui-active.nestui-aurora [class*="Tag"],
+body.nestui-active.nestui-aurora [class*="chip"],
+body.nestui-active.nestui-aurora [class*="Chip"] {
+  border-radius: 20px !important;
+  font-weight: 500 !important;
+}
+
+/* ═══ Modals & Dropdowns ═══ */
 body.nestui-active.nestui-aurora [class*="modal"],
-body.nestui-active.nestui-aurora [class*="dropdown-menu"],
-body.nestui-active.nestui-aurora [class*="popover"] {
-  background-color: var(--surface) !important;
-  border-color: var(--border) !important;
-  color: var(--text) !important;
+body.nestui-active.nestui-aurora [class*="Modal"],
+body.nestui-active.nestui-aurora [class*="dialog"],
+body.nestui-active.nestui-aurora [class*="Dialog"] {
+  background-color: var(--nestui-bg2) !important;
+  border: 1px solid var(--nestui-border) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.1) !important;
+  color: var(--nestui-text) !important;
 }
 
+body.nestui-active.nestui-aurora [class*="dropdown"],
+body.nestui-active.nestui-aurora [class*="Dropdown"],
+body.nestui-active.nestui-aurora [class*="popover"],
+body.nestui-active.nestui-aurora [class*="Popover"],
+body.nestui-active.nestui-aurora [class*="menu-list"],
+body.nestui-active.nestui-aurora [class*="MenuList"] {
+  background-color: var(--nestui-bg2) !important;
+  border: 1px solid var(--nestui-border) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08) !important;
+  color: var(--nestui-text) !important;
+}
+
+/* ═══ Tabs ═══ */
+body.nestui-active.nestui-aurora [class*="tab-active"],
+body.nestui-active.nestui-aurora [class*="tab--active"],
+body.nestui-active.nestui-aurora [role="tab"][aria-selected="true"] {
+  color: var(--nestui-accent) !important;
+  border-bottom-color: var(--nestui-accent) !important;
+}
+
+/* ═══ Tooltips ═══ */
+body.nestui-active.nestui-aurora [class*="tooltip"],
+body.nestui-active.nestui-aurora [class*="Tooltip"] {
+  background-color: var(--nestui-text) !important;
+  color: var(--nestui-bg2) !important;
+  border-radius: 8px !important;
+}
+
+/* ═══ Progress bars ═══ */
+body.nestui-active.nestui-aurora [class*="progress"] [class*="bar"],
+body.nestui-active.nestui-aurora [role="progressbar"] {
+  background-color: var(--nestui-accent) !important;
+}
+
+/* ═══ Scrollbars ═══ */
 body.nestui-active.nestui-aurora ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 
 body.nestui-active.nestui-aurora ::-webkit-scrollbar-track {
-  background: var(--bg) !important;
+  background: transparent !important;
 }
 
 body.nestui-active.nestui-aurora ::-webkit-scrollbar-thumb {
-  background: var(--text3) !important;
+  background: var(--nestui-text3) !important;
   border-radius: 3px;
 }
 
-body.nestui-active.nestui-aurora h1,
-body.nestui-active.nestui-aurora h2,
-body.nestui-active.nestui-aurora h3,
-body.nestui-active.nestui-aurora h4 {
-  color: var(--text) !important;
+body.nestui-active.nestui-aurora ::-webkit-scrollbar-thumb:hover {
+  background: var(--nestui-text2) !important;
 }
 
-body.nestui-active.nestui-aurora p,
-body.nestui-active.nestui-aurora span,
-body.nestui-active.nestui-aurora label {
-  color: var(--text2) !important;
+/* ═══ Dividers & Borders ═══ */
+body.nestui-active.nestui-aurora hr,
+body.nestui-active.nestui-aurora [class*="divider"],
+body.nestui-active.nestui-aurora [class*="Divider"] {
+  border-color: var(--nestui-border) !important;
+}
+
+/* ═══ GHL-specific overrides ═══ */
+
+/* Override teal/green accent that GHL uses */
+body.nestui-active.nestui-aurora [style*="background-color: rgb(0, 191"],
+body.nestui-active.nestui-aurora [style*="background-color: #00bf"],
+body.nestui-active.nestui-aurora [style*="background: rgb(0, 191"],
+body.nestui-active.nestui-aurora [style*="color: rgb(0, 191"] {
+  background-color: var(--nestui-accent) !important;
+  color: #fff !important;
+}
+
+/* GHL uses inline teal colors extensively */
+body.nestui-active.nestui-aurora [style*="background-color: rgb(23, 191, 99)"],
+body.nestui-active.nestui-aurora [style*="background-color: #17BF63"],
+body.nestui-active.nestui-aurora [style*="background-color: #1dc9b7"],
+body.nestui-active.nestui-aurora [style*="background-color: #36b37e"] {
+  background-color: var(--nestui-accent) !important;
+}
+
+/* GHL dashboard widget headers */
+body.nestui-active.nestui-aurora [class*="widget-header"],
+body.nestui-active.nestui-aurora [class*="WidgetHeader"],
+body.nestui-active.nestui-aurora [class*="card-header"],
+body.nestui-active.nestui-aurora [class*="CardHeader"] {
+  background-color: var(--nestui-bg2) !important;
+  border-bottom: 1px solid var(--nestui-border) !important;
+  color: var(--nestui-text) !important;
+}
+
+/* Override any remaining dark backgrounds */
+body.nestui-active.nestui-aurora [class*="dark"],
+body.nestui-active.nestui-aurora .bg-dark {
+  background-color: var(--nestui-text) !important;
+}
+
+/* Loading spinners */
+body.nestui-active.nestui-aurora [class*="spinner"],
+body.nestui-active.nestui-aurora [class*="Spinner"],
+body.nestui-active.nestui-aurora [class*="loader"],
+body.nestui-active.nestui-aurora [class*="Loader"] {
+  color: var(--nestui-accent) !important;
+  border-color: var(--nestui-accent-soft) !important;
+  border-top-color: var(--nestui-accent) !important;
+}
+
+/* Toggle switches */
+body.nestui-active.nestui-aurora [class*="toggle"][class*="active"],
+body.nestui-active.nestui-aurora [class*="switch"][class*="active"],
+body.nestui-active.nestui-aurora input[type="checkbox"]:checked + * {
+  background-color: var(--nestui-accent) !important;
+}
+
+/* Notification dots */
+body.nestui-active.nestui-aurora [class*="notification-dot"],
+body.nestui-active.nestui-aurora [class*="unread-count"] {
+  background-color: var(--nestui-accent) !important;
 }

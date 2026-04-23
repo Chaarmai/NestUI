@@ -1,129 +1,73 @@
 /**
  * Nest UI — Chrome Extension Content Script
- *
- * Runs on every GHL page. Detects the location ID from the URL,
- * fetches the correct theme from the Nest UI API, and injects the CSS.
  */
 
-;(async () => {
-  const SUPABASE_URL = 'https://waqimvlocmrmzidysoqa.supabase.co'
-  const CDN_BASE = 'https://nest-ui-eight.vercel.app'
+(function() {
+  const CDN_BASE = 'https://nest-ui-eight.vercel.app';
 
-  // Get the API key from extension storage
-  const { nestui_api_key: key } = await chrome.storage.sync.get('nestui_api_key')
-  if (!key) return
+  console.log('[Nest UI] Content script loaded on', window.location.href);
 
-  // Detect GHL location ID from the URL
-  const locationId = detectLocationId()
-
-  try {
-    let apiUrl = `${SUPABASE_URL}/functions/v1/get-theme?key=${encodeURIComponent(key)}`
-    if (locationId) {
-      apiUrl += `&location=${encodeURIComponent(locationId)}`
+  chrome.storage.sync.get('nestui_api_key', function(result) {
+    const key = result.nestui_api_key;
+    if (!key) {
+      console.log('[Nest UI] No API key configured');
+      return;
     }
 
-    const res = await fetch(apiUrl)
-    if (!res.ok) return
+    console.log('[Nest UI] API key found, detecting location...');
 
-    const { themeId } = await res.json()
-    if (!themeId) return
+    var locationId = detectLocationId();
+    console.log('[Nest UI] Location ID:', locationId);
 
-    // Inject the theme stylesheet
-    const link = document.createElement('link')
-    link.rel = 'stylesheet'
-    link.href = `${CDN_BASE}/themes/${themeId}.css`
-    link.id = 'nestui-theme'
-    document.head.appendChild(link)
+    chrome.runtime.sendMessage(
+      { type: 'FETCH_THEME', key: key, locationId: locationId },
+      function(data) {
+        if (chrome.runtime.lastError) {
+          console.warn('[Nest UI] Message error:', chrome.runtime.lastError.message);
+          return;
+        }
 
-    // Mark body for CSS scoping
-    document.body.classList.add('nestui-active', `nestui-${themeId}`)
+        if (!data || data.error || !data.themeId) {
+          console.warn('[Nest UI] No theme returned:', data);
+          return;
+        }
 
-    // Remove GHL branding
-    removeGHLBranding()
+        console.log('[Nest UI] Applying theme:', data.themeId, 'source:', data.source);
 
-    // GHL is a SPA — watch for DOM changes and re-hide branding
-    const observer = new MutationObserver(() => removeGHLBranding())
-    observer.observe(document.body, { childList: true, subtree: true })
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = CDN_BASE + '/themes/' + data.themeId + '.css';
+        link.id = 'nestui-theme';
+        document.head.appendChild(link);
 
-    // GHL is a SPA — watch for URL changes and re-fetch theme if location changes
-    let lastLocation = locationId
-    const urlObserver = new MutationObserver(() => {
-      const newLocation = detectLocationId()
-      if (newLocation !== lastLocation) {
-        lastLocation = newLocation
-        swapTheme(key, newLocation)
+        document.body.classList.add('nestui-active', 'nestui-' + data.themeId);
+
+        removeGHLBranding();
+
+        var observer = new MutationObserver(function() { removeGHLBranding(); });
+        observer.observe(document.body, { childList: true, subtree: true });
       }
-    })
-    urlObserver.observe(document.querySelector('head > title') || document.head, {
-      childList: true,
-      subtree: true,
-    })
+    );
+  });
 
-    // Also listen for popstate (back/forward navigation)
-    window.addEventListener('popstate', () => {
-      const newLocation = detectLocationId()
-      if (newLocation !== lastLocation) {
-        lastLocation = newLocation
-        swapTheme(key, newLocation)
-      }
-    })
-  } catch (e) {
-    console.warn('[Nest UI] Could not load theme:', e)
-  }
-
-  /**
-   * Swap the theme when the location changes (SPA navigation)
-   */
-  async function swapTheme(apiKey, locId) {
-    try {
-      let url = `${SUPABASE_URL}/functions/v1/get-theme?key=${encodeURIComponent(apiKey)}`
-      if (locId) url += `&location=${encodeURIComponent(locId)}`
-
-      const res = await fetch(url)
-      if (!res.ok) return
-
-      const { themeId } = await res.json()
-      if (!themeId) return
-
-      // Update the stylesheet
-      const existing = document.getElementById('nestui-theme')
-      if (existing) {
-        existing.href = `${CDN_BASE}/themes/${themeId}.css`
-      }
-
-      // Update body classes
-      document.body.className = document.body.className
-        .replace(/nestui-\S+/g, '')
-        .trim()
-      document.body.classList.add('nestui-active', `nestui-${themeId}`)
-    } catch (e) {
-      console.warn('[Nest UI] Could not swap theme:', e)
-    }
-  }
-
-  /**
-   * Detect GHL location ID from URL path or query params
-   */
   function detectLocationId() {
-    // URL path: /location/{id} or /v2/location/{id}
-    const pathMatch = window.location.pathname.match(/\/location\/([^/]+)/)
-    if (pathMatch) return pathMatch[1]
+    var pathMatch = window.location.pathname.match(/\/location\/([^/]+)/);
+    if (pathMatch) return pathMatch[1];
 
-    // Query params
-    const params = new URLSearchParams(window.location.search)
-    return params.get('locationId') || params.get('location_id') || null
+    var params = new URLSearchParams(window.location.search);
+    return params.get('locationId') || params.get('location_id') || null;
   }
 
   function removeGHLBranding() {
-    const selectors = [
+    var selectors = [
       '[data-testid="ghl-logo"]',
       '.powered-by-ghl',
-      '.hl-branding',
-    ]
-    selectors.forEach((sel) => {
-      document.querySelectorAll(sel).forEach((el) => {
-        el.style.display = 'none'
-      })
-    })
+      '.hl-branding'
+    ];
+    selectors.forEach(function(sel) {
+      document.querySelectorAll(sel).forEach(function(el) {
+        el.style.display = 'none';
+      });
+    });
   }
-})()
+})();
