@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      width: 300px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+      background: #0b0c10;
+      color: #eeeef5;
+      padding: 20px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .logo svg { width: 24px; height: 24px; }
+    .logo span {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .logo .ui { color: #5b8fff; }
+    label {
+      display: block;
+      font-size: 11px;
+      font-weight: 500;
+      color: #8585a8;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    input {
+      width: 100%;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.07);
+      background: #10111a;
+      color: #eeeef5;
+      font-size: 13px;
+      font-family: 'JetBrains Mono', monospace;
+      outline: none;
+    }
+    input:focus {
+      border-color: rgba(91,143,255,0.4);
+      box-shadow: 0 0 0 3px rgba(91,143,255,0.08);
+    }
+    button {
+      width: 100%;
+      margin-top: 12px;
+      padding: 8px;
+      border-radius: 8px;
+      border: none;
+      background: #5b8fff;
+      color: white;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    button:hover { background: #4a7ef0; }
+    .status {
+      margin-top: 10px;
+      font-size: 11px;
+      text-align: center;
+      min-height: 16px;
+    }
+    .status.success { color: #34d399; }
+    .status.info { color: #8585a8; }
+    .hint {
+      margin-top: 12px;
+      font-size: 11px;
+      color: #8585a8;
+      line-height: 1.5;
+    }
+    .custom-domain {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .toggle {
+      font-size: 11px;
+      color: #5b8fff;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+      margin: 0;
+      width: auto;
+      font-weight: 500;
+    }
+    .toggle:hover { text-decoration: underline; }
+    .domain-input { margin-top: 8px; display: none; }
+    .domain-input.visible { display: block; }
+  </style>
+</head>
+<body>
+  <div class="logo">
+    <svg viewBox="0 0 32 32" fill="none">
+      <path d="M16 2L28 9v14l-12 7L4 23V9l12-7z" stroke="#5b8fff" stroke-width="2" fill="none"/>
+      <path d="M16 8l8 4.5v9L16 26l-8-4.5v-9L16 8z" stroke="#5b8fff" stroke-width="1.5" fill="none" opacity="0.6"/>
+      <circle cx="16" cy="16" r="2" fill="white"/>
+    </svg>
+    <span>Nest<span class="ui">UI</span></span>
+  </div>
+
+  <label for="api-key">API Key</label>
+  <input type="text" id="api-key" placeholder="Paste your NestUI API key" spellcheck="false" />
+
+  <div class="custom-domain">
+    <button class="toggle" id="toggle-domain">+ Add custom GHL domain</button>
+    <div class="domain-input" id="domain-section">
+      <label for="custom-domain" style="margin-top: 8px;">Custom GHL Domain</label>
+      <input type="text" id="custom-domain" placeholder="e.g. app.youragency.com" spellcheck="false" />
+      <p class="hint">If your GHL uses a custom domain, add it here so the extension activates on it.</p>
+    </div>
+  </div>
+
+  <button id="save">Save</button>
+  <div class="status" id="status"></div>
+
+  <p class="hint">Find your API key in NestUI → Settings. The extension will automatically theme your GHL dashboard.</p>
+
+  <script src="popup.js"></script>
+</body>
+</html>
