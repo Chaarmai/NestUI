@@ -2,6 +2,9 @@
  * Nest UI — Aurora Theme
  * Clean premium SaaS. Warm white with soft purple accents.
  * Nav: Left Sidebar
+ *
+ * STRATEGY: GHL uses inline styles and CSS vars extensively.
+ * We override with maximum specificity and !important everywhere.
  */
 
 /* ═══ CSS Custom Properties ═══ */
@@ -21,14 +24,7 @@ body.nestui-active.nestui-aurora {
   --nestui-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.03);
 }
 
-/* ═══ Global Overrides ═══ */
-body.nestui-active.nestui-aurora {
-  background-color: var(--nestui-bg) !important;
-  color: var(--nestui-text) !important;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
-}
-
-/* Override GHL's CSS variables globally */
+/* ═══ NUCLEAR: Override ALL GHL CSS variables ═══ */
 body.nestui-active.nestui-aurora,
 body.nestui-active.nestui-aurora *,
 body.nestui-active.nestui-aurora *::before,
@@ -36,6 +32,9 @@ body.nestui-active.nestui-aurora *::after {
   --primary-color: #7c5cfc !important;
   --app-primary: #7c5cfc !important;
   --primary: #7c5cfc !important;
+  --brand-primary: #7c5cfc !important;
+  --brand-color: #7c5cfc !important;
+  --accent-color: #7c5cfc !important;
   --primary-500: #7c5cfc !important;
   --primary-600: #6a48e8 !important;
   --primary-700: #5835d4 !important;
@@ -44,72 +43,180 @@ body.nestui-active.nestui-aurora *::after {
   --primary-200: #d6ccfe !important;
   --primary-100: #ece8ff !important;
   --primary-50: #f5f3ff !important;
+  --success: #7c5cfc !important;
+  --teal: #7c5cfc !important;
+  --cyan: #7c5cfc !important;
+  --info: #7c5cfc !important;
+  /* GHL specific vars */
+  --location-primary-color: #7c5cfc !important;
+  --header-bg: #ffffff !important;
+  --sidebar-bg: #f8f7f4 !important;
+  --sidebar-text: #6b6b67 !important;
+  --sidebar-active: #7c5cfc !important;
+  --sidebar-active-bg: rgba(124,92,252,0.1) !important;
 }
 
-/* ═══ Left Sidebar / Navigation ═══ */
+/* ═══ Global Overrides ═══ */
+body.nestui-active.nestui-aurora {
+  background-color: #f5f4f0 !important;
+  color: #111110 !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
 
-/* Main sidebar container */
+/* ═══ TEAL COLOR NUCLEAR OVERRIDE ═══ */
+/* GHL uses many variations of teal/cyan. Override ALL of them. */
+
+/* Background teal overrides - catch every possible format */
+body.nestui-active.nestui-aurora [style*="background-color: rgb(0, 191"],
+body.nestui-active.nestui-aurora [style*="background-color: rgb(0,191"],
+body.nestui-active.nestui-aurora [style*="background-color: rgb(0, 181"],
+body.nestui-active.nestui-aurora [style*="background-color: rgb(0,181"],
+body.nestui-active.nestui-aurora [style*="background-color: rgb(0, 150"],
+body.nestui-active.nestui-aurora [style*="background-color: rgb(0,150"],
+body.nestui-active.nestui-aurora [style*="background-color: rgb(23, 191"],
+body.nestui-active.nestui-aurora [style*="background-color: rgb(23,191"],
+body.nestui-active.nestui-aurora [style*="background-color: #00bf"],
+body.nestui-active.nestui-aurora [style*="background-color: #00BF"],
+body.nestui-active.nestui-aurora [style*="background-color: #17bf"],
+body.nestui-active.nestui-aurora [style*="background-color: #17BF"],
+body.nestui-active.nestui-aurora [style*="background-color: #1dc9"],
+body.nestui-active.nestui-aurora [style*="background-color: #1DC9"],
+body.nestui-active.nestui-aurora [style*="background-color: #36b3"],
+body.nestui-active.nestui-aurora [style*="background-color: #009688"],
+body.nestui-active.nestui-aurora [style*="background-color: #00968"],
+body.nestui-active.nestui-aurora [style*="background-color: #0097"],
+body.nestui-active.nestui-aurora [style*="background-color: #26a69a"],
+body.nestui-active.nestui-aurora [style*="background-color: #4db6ac"],
+body.nestui-active.nestui-aurora [style*="background-color: #80cbc4"],
+body.nestui-active.nestui-aurora [style*="background: rgb(0, 191"],
+body.nestui-active.nestui-aurora [style*="background: rgb(0,191"],
+body.nestui-active.nestui-aurora [style*="background: #00bf"],
+body.nestui-active.nestui-aurora [style*="background: #00BF"],
+body.nestui-active.nestui-aurora [style*="background: #009688"],
+body.nestui-active.nestui-aurora [style*="background: #17bf"],
+body.nestui-active.nestui-aurora [style*="background: #17BF"],
+body.nestui-active.nestui-aurora [style*="background-color:#00bf"],
+body.nestui-active.nestui-aurora [style*="background-color:#00BF"],
+body.nestui-active.nestui-aurora [style*="background-color:#009688"],
+body.nestui-active.nestui-aurora [style*="background-color:#17bf"],
+body.nestui-active.nestui-aurora [style*="background-color:#17BF"] {
+  background-color: #7c5cfc !important;
+  background: #7c5cfc !important;
+}
+
+/* Text color teal overrides */
+body.nestui-active.nestui-aurora [style*="color: rgb(0, 191"],
+body.nestui-active.nestui-aurora [style*="color: rgb(0,191"],
+body.nestui-active.nestui-aurora [style*="color: rgb(23, 191"],
+body.nestui-active.nestui-aurora [style*="color: #00bf"],
+body.nestui-active.nestui-aurora [style*="color: #00BF"],
+body.nestui-active.nestui-aurora [style*="color: #17bf"],
+body.nestui-active.nestui-aurora [style*="color: #17BF"],
+body.nestui-active.nestui-aurora [style*="color: #009688"],
+body.nestui-active.nestui-aurora [style*="color:#00bf"],
+body.nestui-active.nestui-aurora [style*="color:#00BF"],
+body.nestui-active.nestui-aurora [style*="color:#009688"] {
+  color: #7c5cfc !important;
+}
+
+/* Border teal overrides */
+body.nestui-active.nestui-aurora [style*="border-color: rgb(0, 191"],
+body.nestui-active.nestui-aurora [style*="border-color: #00bf"],
+body.nestui-active.nestui-aurora [style*="border-color: #00BF"],
+body.nestui-active.nestui-aurora [style*="border-color: #009688"],
+body.nestui-active.nestui-aurora [style*="border: 1px solid rgb(0, 191"],
+body.nestui-active.nestui-aurora [style*="border: 2px solid rgb(0, 191"] {
+  border-color: #7c5cfc !important;
+}
+
+/* ═══ Left Sidebar ═══ */
+
+/* The narrow icon rail on the far left */
+body.nestui-active.nestui-aurora #sb_dashboard,
+body.nestui-active.nestui-aurora [id="sb_dashboard"],
+body.nestui-active.nestui-aurora .main-sidebar,
 body.nestui-active.nestui-aurora #sidebar,
 body.nestui-active.nestui-aurora .sidebar,
 body.nestui-active.nestui-aurora [id*="sidebar"],
-body.nestui-active.nestui-aurora [class*="sidebar"],
-body.nestui-active.nestui-aurora [class*="Sidebar"],
+body.nestui-active.nestui-aurora [class*="sidebar"]:not([class*="sidebar-open"]),
+body.nestui-active.nestui-aurora [class*="Sidebar"]:not([class*="Content"]),
 body.nestui-active.nestui-aurora [class*="side-bar"],
 body.nestui-active.nestui-aurora [class*="left-menu"],
 body.nestui-active.nestui-aurora [class*="LeftMenu"],
 body.nestui-active.nestui-aurora [class*="nav-menu"],
 body.nestui-active.nestui-aurora [class*="NavMenu"],
-body.nestui-active.nestui-aurora aside,
-body.nestui-active.nestui-aurora nav[class*="vertical"] {
-  background-color: var(--nestui-bg1) !important;
-  border-right: 1px solid var(--nestui-border) !important;
-  color: var(--nestui-text2) !important;
+body.nestui-active.nestui-aurora [class*="leftside"],
+body.nestui-active.nestui-aurora [class*="LeftSide"],
+body.nestui-active.nestui-aurora [class*="side-nav"],
+body.nestui-active.nestui-aurora [class*="SideNav"],
+body.nestui-active.nestui-aurora [class*="sidenav"],
+body.nestui-active.nestui-aurora aside {
+  background-color: #f8f7f4 !important;
+  background: #f8f7f4 !important;
+  border-right-color: rgba(0,0,0,0.07) !important;
+  color: #6b6b67 !important;
 }
 
-/* Sidebar links */
+/* Sidebar/nav links */
 body.nestui-active.nestui-aurora #sidebar a,
 body.nestui-active.nestui-aurora .sidebar a,
 body.nestui-active.nestui-aurora [class*="sidebar"] a,
 body.nestui-active.nestui-aurora [class*="Sidebar"] a,
 body.nestui-active.nestui-aurora [class*="nav-menu"] a,
+body.nestui-active.nestui-aurora [class*="sidenav"] a,
 body.nestui-active.nestui-aurora aside a {
-  color: var(--nestui-text2) !important;
-  transition: all 0.15s ease !important;
+  color: #6b6b67 !important;
 }
 
 body.nestui-active.nestui-aurora #sidebar a:hover,
 body.nestui-active.nestui-aurora .sidebar a:hover,
 body.nestui-active.nestui-aurora [class*="sidebar"] a:hover,
 body.nestui-active.nestui-aurora aside a:hover {
-  color: var(--nestui-accent) !important;
-  background-color: var(--nestui-accent-soft) !important;
+  color: #7c5cfc !important;
+  background-color: rgba(124,92,252,0.08) !important;
 }
 
 /* Active nav item */
-body.nestui-active.nestui-aurora #sidebar a.active,
-body.nestui-active.nestui-aurora #sidebar a.router-link-active,
 body.nestui-active.nestui-aurora [class*="sidebar"] a.active,
 body.nestui-active.nestui-aurora [class*="sidebar"] a.router-link-active,
+body.nestui-active.nestui-aurora [class*="sidebar"] a.router-link-exact-active,
 body.nestui-active.nestui-aurora [class*="sidebar"] a[aria-current="page"],
 body.nestui-active.nestui-aurora [class*="sidebar"] .active,
 body.nestui-active.nestui-aurora [class*="sidebar"] [class*="active"],
+body.nestui-active.nestui-aurora [class*="sidebar"] [class*="Active"],
+body.nestui-active.nestui-aurora [class*="sidebar"] [class*="selected"],
+body.nestui-active.nestui-aurora [class*="sidebar"] [class*="Selected"],
 body.nestui-active.nestui-aurora aside a.active,
 body.nestui-active.nestui-aurora aside a.router-link-active,
-body.nestui-active.nestui-aurora aside [class*="active"] {
-  color: var(--nestui-accent) !important;
-  background-color: var(--nestui-accent-soft2) !important;
+body.nestui-active.nestui-aurora aside [class*="active"],
+body.nestui-active.nestui-aurora #sidebar .active,
+body.nestui-active.nestui-aurora #sidebar .router-link-active {
+  color: #7c5cfc !important;
+  background-color: rgba(124,92,252,0.12) !important;
+  background: rgba(124,92,252,0.12) !important;
   font-weight: 600 !important;
 }
 
-/* Sidebar icons */
+/* Sidebar icons — inherit color from parent */
 body.nestui-active.nestui-aurora #sidebar svg,
 body.nestui-active.nestui-aurora [class*="sidebar"] svg,
-body.nestui-active.nestui-aurora aside svg {
+body.nestui-active.nestui-aurora aside svg,
+body.nestui-active.nestui-aurora [class*="sidebar"] i,
+body.nestui-active.nestui-aurora aside i {
   color: inherit !important;
   fill: currentColor !important;
 }
 
-/* ═══ Top Header / Navbar ═══ */
+/* GHL logo in sidebar - hide or restyle */
+body.nestui-active.nestui-aurora [class*="sidebar"] img[src*="logo"],
+body.nestui-active.nestui-aurora [class*="sidebar"] img[alt*="logo"],
+body.nestui-active.nestui-aurora aside img[src*="logo"],
+body.nestui-active.nestui-aurora [class*="sidebar"] [class*="logo"],
+body.nestui-active.nestui-aurora [class*="sidebar"] [class*="Logo"] {
+  filter: hue-rotate(240deg) saturate(1.5) !important;
+}
+
+/* ═══ Top Header ═══ */
 body.nestui-active.nestui-aurora header,
 body.nestui-active.nestui-aurora [class*="topbar"],
 body.nestui-active.nestui-aurora [class*="Topbar"],
@@ -118,11 +225,23 @@ body.nestui-active.nestui-aurora [class*="TopBar"],
 body.nestui-active.nestui-aurora [class*="navbar"],
 body.nestui-active.nestui-aurora [class*="Navbar"],
 body.nestui-active.nestui-aurora [class*="header-bar"],
-body.nestui-active.nestui-aurora [class*="app-header"] {
-  background-color: var(--nestui-bg2) !important;
-  border-bottom: 1px solid var(--nestui-border) !important;
-  color: var(--nestui-text) !important;
-  box-shadow: var(--nestui-shadow) !important;
+body.nestui-active.nestui-aurora [class*="app-header"],
+body.nestui-active.nestui-aurora [class*="AppHeader"] {
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+  border-bottom: 1px solid rgba(0,0,0,0.07) !important;
+  color: #111110 !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04) !important;
+}
+
+/* ═══ Notification Banner (the teal "Logged in as..." bar) ═══ */
+body.nestui-active.nestui-aurora [class*="notification-bar"],
+body.nestui-active.nestui-aurora [class*="NotificationBar"],
+body.nestui-active.nestui-aurora [class*="alert-bar"],
+body.nestui-active.nestui-aurora [class*="info-bar"],
+body.nestui-active.nestui-aurora [class*="banner"] {
+  background-color: #7c5cfc !important;
+  background: #7c5cfc !important;
 }
 
 /* ═══ Main Content Area ═══ */
@@ -133,71 +252,123 @@ body.nestui-active.nestui-aurora [class*="content-area"],
 body.nestui-active.nestui-aurora [class*="page-content"],
 body.nestui-active.nestui-aurora [class*="PageContent"],
 body.nestui-active.nestui-aurora [class*="app-content"],
-body.nestui-active.nestui-aurora #app > div > div:last-child,
-body.nestui-active.nestui-aurora [id*="main"] {
-  background-color: var(--nestui-bg) !important;
+body.nestui-active.nestui-aurora [class*="AppContent"],
+body.nestui-active.nestui-aurora [id*="main"],
+body.nestui-active.nestui-aurora [class*="dashboard-body"],
+body.nestui-active.nestui-aurora [class*="DashboardBody"] {
+  background-color: #f5f4f0 !important;
+  background: #f5f4f0 !important;
 }
 
-/* ═══ Cards & Panels ═══ */
+/* ═══ Dashboard Widget Cards ═══ */
+
+/* Card containers */
 body.nestui-active.nestui-aurora [class*="card"],
 body.nestui-active.nestui-aurora [class*="Card"],
 body.nestui-active.nestui-aurora [class*="panel"],
-body.nestui-active.nestui-aurora [class*="Panel"],
+body.nestui-active.nestui-aurora [class*="Panel"]:not([class*="left"]):not([class*="Left"]),
 body.nestui-active.nestui-aurora [class*="widget"],
 body.nestui-active.nestui-aurora [class*="Widget"],
 body.nestui-active.nestui-aurora [class*="tile"],
+body.nestui-active.nestui-aurora [class*="Tile"],
 body.nestui-active.nestui-aurora .bg-white,
 body.nestui-active.nestui-aurora [class*="bg-white"] {
-  background-color: var(--nestui-bg2) !important;
-  border: 1px solid var(--nestui-border) !important;
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+  border: 1px solid rgba(0,0,0,0.07) !important;
   border-radius: 12px !important;
-  box-shadow: var(--nestui-shadow) !important;
-  color: var(--nestui-text) !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.03) !important;
+  color: #111110 !important;
+}
+
+/* Widget/Card HEADERS — these are the teal bars in GHL */
+body.nestui-active.nestui-aurora [class*="widget-header"],
+body.nestui-active.nestui-aurora [class*="WidgetHeader"],
+body.nestui-active.nestui-aurora [class*="card-header"],
+body.nestui-active.nestui-aurora [class*="CardHeader"],
+body.nestui-active.nestui-aurora [class*="card-title"],
+body.nestui-active.nestui-aurora [class*="CardTitle"],
+body.nestui-active.nestui-aurora [class*="panel-header"],
+body.nestui-active.nestui-aurora [class*="PanelHeader"],
+body.nestui-active.nestui-aurora [class*="panel-heading"],
+body.nestui-active.nestui-aurora [class*="widget-title"],
+body.nestui-active.nestui-aurora [class*="WidgetTitle"],
+body.nestui-active.nestui-aurora [class*="tile-header"],
+body.nestui-active.nestui-aurora [class*="TileHeader"] {
+  background-color: #7c5cfc !important;
+  background: #7c5cfc !important;
+  color: #ffffff !important;
+  border-bottom: none !important;
+  border-radius: 12px 12px 0 0 !important;
+}
+
+/* Text inside card headers should be white */
+body.nestui-active.nestui-aurora [class*="widget-header"] *,
+body.nestui-active.nestui-aurora [class*="WidgetHeader"] *,
+body.nestui-active.nestui-aurora [class*="card-header"] *,
+body.nestui-active.nestui-aurora [class*="CardHeader"] *,
+body.nestui-active.nestui-aurora [class*="panel-heading"] *,
+body.nestui-active.nestui-aurora [class*="widget-title"] *,
+body.nestui-active.nestui-aurora [class*="WidgetTitle"] *,
+body.nestui-active.nestui-aurora [class*="tile-header"] *,
+body.nestui-active.nestui-aurora [class*="TileHeader"] * {
+  color: #ffffff !important;
+}
+
+/* Card body */
+body.nestui-active.nestui-aurora [class*="card-body"],
+body.nestui-active.nestui-aurora [class*="CardBody"],
+body.nestui-active.nestui-aurora [class*="widget-body"],
+body.nestui-active.nestui-aurora [class*="WidgetBody"],
+body.nestui-active.nestui-aurora [class*="panel-body"],
+body.nestui-active.nestui-aurora [class*="PanelBody"] {
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+  color: #111110 !important;
 }
 
 /* ═══ Buttons ═══ */
-
-/* Primary buttons */
 body.nestui-active.nestui-aurora [class*="btn-primary"],
 body.nestui-active.nestui-aurora [class*="btn--primary"],
 body.nestui-active.nestui-aurora [class*="BtnPrimary"],
 body.nestui-active.nestui-aurora button[class*="primary"],
 body.nestui-active.nestui-aurora .bg-primary,
-body.nestui-active.nestui-aurora [class*="bg-primary"] {
-  background-color: var(--nestui-accent) !important;
+body.nestui-active.nestui-aurora [class*="bg-primary"],
+body.nestui-active.nestui-aurora [class*="n-button--primary"] {
+  background-color: #7c5cfc !important;
+  background: #7c5cfc !important;
   color: #ffffff !important;
   border: none !important;
   border-radius: 8px !important;
-  box-shadow: 0 1px 2px rgba(124,92,252,0.2) !important;
 }
 
 body.nestui-active.nestui-aurora [class*="btn-primary"]:hover,
 body.nestui-active.nestui-aurora button[class*="primary"]:hover {
-  background-color: var(--nestui-accent-hover) !important;
-  box-shadow: 0 4px 12px rgba(124,92,252,0.3) !important;
+  background-color: #6a48e8 !important;
+  background: #6a48e8 !important;
 }
 
-/* Secondary/outline buttons */
+/* Secondary buttons */
 body.nestui-active.nestui-aurora [class*="btn-secondary"],
 body.nestui-active.nestui-aurora [class*="btn-outline"],
-body.nestui-active.nestui-aurora [class*="btn--secondary"] {
-  background-color: var(--nestui-bg2) !important;
-  color: var(--nestui-accent) !important;
-  border: 1px solid var(--nestui-border) !important;
+body.nestui-active.nestui-aurora [class*="btn--secondary"],
+body.nestui-active.nestui-aurora [class*="btn-default"] {
+  background-color: #ffffff !important;
+  color: #7c5cfc !important;
+  border: 1px solid rgba(0,0,0,0.07) !important;
   border-radius: 8px !important;
 }
 
 /* ═══ Tables ═══ */
 body.nestui-active.nestui-aurora table {
-  background-color: var(--nestui-bg2) !important;
-  border-color: var(--nestui-border) !important;
+  background-color: #ffffff !important;
 }
 
 body.nestui-active.nestui-aurora thead,
 body.nestui-active.nestui-aurora th {
-  background-color: var(--nestui-bg1) !important;
-  color: var(--nestui-text2) !important;
-  border-color: var(--nestui-border) !important;
+  background-color: #eeedea !important;
+  color: #6b6b67 !important;
+  border-color: rgba(0,0,0,0.07) !important;
   font-weight: 600 !important;
   text-transform: uppercase !important;
   font-size: 11px !important;
@@ -205,39 +376,35 @@ body.nestui-active.nestui-aurora th {
 }
 
 body.nestui-active.nestui-aurora td {
-  color: var(--nestui-text) !important;
-  border-color: var(--nestui-border) !important;
+  color: #111110 !important;
+  border-color: rgba(0,0,0,0.07) !important;
 }
 
 body.nestui-active.nestui-aurora tr:hover td {
-  background-color: var(--nestui-accent-soft) !important;
+  background-color: rgba(124,92,252,0.05) !important;
 }
 
 /* ═══ Form Elements ═══ */
-body.nestui-active.nestui-aurora input,
+body.nestui-active.nestui-aurora input:not([type="checkbox"]):not([type="radio"]),
 body.nestui-active.nestui-aurora select,
-body.nestui-active.nestui-aurora textarea,
-body.nestui-active.nestui-aurora [class*="input"],
-body.nestui-active.nestui-aurora [class*="Input"],
-body.nestui-active.nestui-aurora [class*="select"],
-body.nestui-active.nestui-aurora [class*="Select"] {
-  background-color: var(--nestui-bg2) !important;
-  color: var(--nestui-text) !important;
-  border: 1px solid var(--nestui-border) !important;
+body.nestui-active.nestui-aurora textarea {
+  background-color: #ffffff !important;
+  color: #111110 !important;
+  border: 1px solid rgba(0,0,0,0.12) !important;
   border-radius: 8px !important;
 }
 
 body.nestui-active.nestui-aurora input:focus,
 body.nestui-active.nestui-aurora select:focus,
 body.nestui-active.nestui-aurora textarea:focus {
-  border-color: var(--nestui-accent) !important;
-  box-shadow: 0 0 0 3px var(--nestui-accent-soft) !important;
+  border-color: #7c5cfc !important;
+  box-shadow: 0 0 0 3px rgba(124,92,252,0.08) !important;
   outline: none !important;
 }
 
 body.nestui-active.nestui-aurora input::placeholder,
 body.nestui-active.nestui-aurora textarea::placeholder {
-  color: var(--nestui-text3) !important;
+  color: #ababab !important;
 }
 
 /* ═══ Typography ═══ */
@@ -247,22 +414,9 @@ body.nestui-active.nestui-aurora h3,
 body.nestui-active.nestui-aurora h4,
 body.nestui-active.nestui-aurora h5,
 body.nestui-active.nestui-aurora h6 {
-  color: var(--nestui-text) !important;
+  color: #111110 !important;
   font-weight: 700 !important;
   letter-spacing: -0.01em !important;
-}
-
-body.nestui-active.nestui-aurora p,
-body.nestui-active.nestui-aurora label,
-body.nestui-active.nestui-aurora [class*="label"],
-body.nestui-active.nestui-aurora [class*="description"],
-body.nestui-active.nestui-aurora [class*="subtitle"] {
-  color: var(--nestui-text2) !important;
-}
-
-/* ═══ Links ═══ */
-body.nestui-active.nestui-aurora a:not([class*="sidebar"]):not([class*="nav"]):not(aside a) {
-  color: var(--nestui-accent) !important;
 }
 
 /* ═══ Badges & Tags ═══ */
@@ -281,11 +435,10 @@ body.nestui-active.nestui-aurora [class*="modal"],
 body.nestui-active.nestui-aurora [class*="Modal"],
 body.nestui-active.nestui-aurora [class*="dialog"],
 body.nestui-active.nestui-aurora [class*="Dialog"] {
-  background-color: var(--nestui-bg2) !important;
-  border: 1px solid var(--nestui-border) !important;
+  background-color: #ffffff !important;
   border-radius: 16px !important;
   box-shadow: 0 25px 50px rgba(0,0,0,0.1) !important;
-  color: var(--nestui-text) !important;
+  color: #111110 !important;
 }
 
 body.nestui-active.nestui-aurora [class*="dropdown"],
@@ -294,33 +447,19 @@ body.nestui-active.nestui-aurora [class*="popover"],
 body.nestui-active.nestui-aurora [class*="Popover"],
 body.nestui-active.nestui-aurora [class*="menu-list"],
 body.nestui-active.nestui-aurora [class*="MenuList"] {
-  background-color: var(--nestui-bg2) !important;
-  border: 1px solid var(--nestui-border) !important;
+  background-color: #ffffff !important;
+  border: 1px solid rgba(0,0,0,0.07) !important;
   border-radius: 12px !important;
   box-shadow: 0 10px 25px rgba(0,0,0,0.08) !important;
-  color: var(--nestui-text) !important;
+  color: #111110 !important;
 }
 
 /* ═══ Tabs ═══ */
 body.nestui-active.nestui-aurora [class*="tab-active"],
 body.nestui-active.nestui-aurora [class*="tab--active"],
 body.nestui-active.nestui-aurora [role="tab"][aria-selected="true"] {
-  color: var(--nestui-accent) !important;
-  border-bottom-color: var(--nestui-accent) !important;
-}
-
-/* ═══ Tooltips ═══ */
-body.nestui-active.nestui-aurora [class*="tooltip"],
-body.nestui-active.nestui-aurora [class*="Tooltip"] {
-  background-color: var(--nestui-text) !important;
-  color: var(--nestui-bg2) !important;
-  border-radius: 8px !important;
-}
-
-/* ═══ Progress bars ═══ */
-body.nestui-active.nestui-aurora [class*="progress"] [class*="bar"],
-body.nestui-active.nestui-aurora [role="progressbar"] {
-  background-color: var(--nestui-accent) !important;
+  color: #7c5cfc !important;
+  border-bottom-color: #7c5cfc !important;
 }
 
 /* ═══ Scrollbars ═══ */
@@ -334,75 +473,181 @@ body.nestui-active.nestui-aurora ::-webkit-scrollbar-track {
 }
 
 body.nestui-active.nestui-aurora ::-webkit-scrollbar-thumb {
-  background: var(--nestui-text3) !important;
+  background: #ababab !important;
   border-radius: 3px;
 }
 
-body.nestui-active.nestui-aurora ::-webkit-scrollbar-thumb:hover {
-  background: var(--nestui-text2) !important;
-}
-
-/* ═══ Dividers & Borders ═══ */
+/* ═══ Dividers ═══ */
 body.nestui-active.nestui-aurora hr,
 body.nestui-active.nestui-aurora [class*="divider"],
 body.nestui-active.nestui-aurora [class*="Divider"] {
-  border-color: var(--nestui-border) !important;
+  border-color: rgba(0,0,0,0.07) !important;
 }
 
-/* ═══ GHL-specific overrides ═══ */
-
-/* Override teal/green accent that GHL uses */
-body.nestui-active.nestui-aurora [style*="background-color: rgb(0, 191"],
-body.nestui-active.nestui-aurora [style*="background-color: #00bf"],
-body.nestui-active.nestui-aurora [style*="background: rgb(0, 191"],
-body.nestui-active.nestui-aurora [style*="color: rgb(0, 191"] {
-  background-color: var(--nestui-accent) !important;
-  color: #fff !important;
+/* ═══ Progress bars ═══ */
+body.nestui-active.nestui-aurora [class*="progress"] [class*="bar"],
+body.nestui-active.nestui-aurora [role="progressbar"] {
+  background-color: #7c5cfc !important;
 }
 
-/* GHL uses inline teal colors extensively */
-body.nestui-active.nestui-aurora [style*="background-color: rgb(23, 191, 99)"],
-body.nestui-active.nestui-aurora [style*="background-color: #17BF63"],
-body.nestui-active.nestui-aurora [style*="background-color: #1dc9b7"],
-body.nestui-active.nestui-aurora [style*="background-color: #36b37e"] {
-  background-color: var(--nestui-accent) !important;
+/* ═══ Toggle switches ═══ */
+body.nestui-active.nestui-aurora [class*="toggle"][class*="active"],
+body.nestui-active.nestui-aurora [class*="switch"][class*="active"],
+body.nestui-active.nestui-aurora input[type="checkbox"]:checked + * {
+  background-color: #7c5cfc !important;
 }
 
-/* GHL dashboard widget headers */
-body.nestui-active.nestui-aurora [class*="widget-header"],
-body.nestui-active.nestui-aurora [class*="WidgetHeader"],
-body.nestui-active.nestui-aurora [class*="card-header"],
-body.nestui-active.nestui-aurora [class*="CardHeader"] {
-  background-color: var(--nestui-bg2) !important;
-  border-bottom: 1px solid var(--nestui-border) !important;
-  color: var(--nestui-text) !important;
-}
-
-/* Override any remaining dark backgrounds */
-body.nestui-active.nestui-aurora [class*="dark"],
-body.nestui-active.nestui-aurora .bg-dark {
-  background-color: var(--nestui-text) !important;
-}
-
-/* Loading spinners */
+/* ═══ Loading spinners ═══ */
 body.nestui-active.nestui-aurora [class*="spinner"],
 body.nestui-active.nestui-aurora [class*="Spinner"],
 body.nestui-active.nestui-aurora [class*="loader"],
 body.nestui-active.nestui-aurora [class*="Loader"] {
-  color: var(--nestui-accent) !important;
-  border-color: var(--nestui-accent-soft) !important;
-  border-top-color: var(--nestui-accent) !important;
+  color: #7c5cfc !important;
 }
 
-/* Toggle switches */
-body.nestui-active.nestui-aurora [class*="toggle"][class*="active"],
-body.nestui-active.nestui-aurora [class*="switch"][class*="active"],
-body.nestui-active.nestui-aurora input[type="checkbox"]:checked + * {
-  background-color: var(--nestui-accent) !important;
+/* ═══ SVG/Donut charts ═══ */
+body.nestui-active.nestui-aurora svg circle[stroke] {
+  stroke: #7c5cfc !important;
 }
 
-/* Notification dots */
-body.nestui-active.nestui-aurora [class*="notification-dot"],
-body.nestui-active.nestui-aurora [class*="unread-count"] {
-  background-color: var(--nestui-accent) !important;
+body.nestui-active.nestui-aurora svg path[fill]:not([fill="none"]):not([fill="transparent"]):not([fill="#fff"]):not([fill="#ffffff"]):not([fill="white"]) {
+  /* Don't override all SVGs, just specifically teal ones */
+}
+
+/* ═══ SUPER NUCLEAR: Catch teal via general selectors ═══ */
+/* This catches elements where GHL sets teal as bg via component styles */
+
+/* Any div with explicit teal-ish background */
+body.nestui-active.nestui-aurora div[style*="0, 191"],
+body.nestui-active.nestui-aurora div[style*="0,191"],
+body.nestui-active.nestui-aurora span[style*="0, 191"],
+body.nestui-active.nestui-aurora span[style*="0,191"],
+body.nestui-active.nestui-aurora div[style*="#00bf"],
+body.nestui-active.nestui-aurora div[style*="#00BF"],
+body.nestui-active.nestui-aurora span[style*="#00bf"],
+body.nestui-active.nestui-aurora span[style*="#00BF"],
+body.nestui-active.nestui-aurora a[style*="0, 191"],
+body.nestui-active.nestui-aurora a[style*="#00bf"],
+body.nestui-active.nestui-aurora a[style*="#00BF"],
+body.nestui-active.nestui-aurora p[style*="0, 191"],
+body.nestui-active.nestui-aurora p[style*="#00bf"],
+body.nestui-active.nestui-aurora p[style*="#00BF"],
+body.nestui-active.nestui-aurora i[style*="0, 191"],
+body.nestui-active.nestui-aurora i[style*="#00bf"],
+body.nestui-active.nestui-aurora i[style*="#00BF"],
+body.nestui-active.nestui-aurora button[style*="0, 191"],
+body.nestui-active.nestui-aurora button[style*="#00bf"],
+body.nestui-active.nestui-aurora button[style*="#00BF"] {
+  background-color: #7c5cfc !important;
+  background: #7c5cfc !important;
+  color: #ffffff !important;
+  border-color: #7c5cfc !important;
+}
+
+/* ═══ ADDITIONAL SPECIFICITY: GHL uses Naive UI (n- prefix) ═══ */
+body.nestui-active.nestui-aurora .n-card {
+  background-color: #ffffff !important;
+  border: 1px solid rgba(0,0,0,0.07) !important;
+  border-radius: 12px !important;
+}
+
+body.nestui-active.nestui-aurora .n-card-header {
+  background-color: #7c5cfc !important;
+  color: #ffffff !important;
+}
+
+body.nestui-active.nestui-aurora .n-button--primary-type {
+  background-color: #7c5cfc !important;
+  color: #ffffff !important;
+}
+
+body.nestui-active.nestui-aurora .n-tag {
+  border-radius: 20px !important;
+}
+
+body.nestui-active.nestui-aurora .n-data-table {
+  background-color: #ffffff !important;
+}
+
+body.nestui-active.nestui-aurora .n-data-table .n-data-table-th {
+  background-color: #eeedea !important;
+  color: #6b6b67 !important;
+}
+
+/* ═══ GHL-specific: Dashboard widget wrapper ═══ */
+/* GHL wraps dashboard widgets in colored containers */
+body.nestui-active.nestui-aurora [class*="dashboard-widget"],
+body.nestui-active.nestui-aurora [class*="DashboardWidget"],
+body.nestui-active.nestui-aurora [class*="dashboard-card"],
+body.nestui-active.nestui-aurora [class*="DashboardCard"],
+body.nestui-active.nestui-aurora [class*="stat-card"],
+body.nestui-active.nestui-aurora [class*="StatCard"],
+body.nestui-active.nestui-aurora [class*="metric-card"],
+body.nestui-active.nestui-aurora [class*="MetricCard"] {
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+  border: 1px solid rgba(0,0,0,0.07) !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+}
+
+/* GHL location switcher dropdown */
+body.nestui-active.nestui-aurora [class*="location-switcher"],
+body.nestui-active.nestui-aurora [class*="LocationSwitcher"] {
+  background-color: #ffffff !important;
+  border: 1px solid rgba(0,0,0,0.07) !important;
+}
+
+/* ═══ Donut/Ring chart in Conversion Rate widget ═══ */
+body.nestui-active.nestui-aurora [class*="chart"] svg circle,
+body.nestui-active.nestui-aurora [class*="Chart"] svg circle,
+body.nestui-active.nestui-aurora [class*="donut"] svg circle,
+body.nestui-active.nestui-aurora [class*="ring"] svg circle {
+  stroke: #7c5cfc !important;
+}
+
+/* ═══ Filter/Action buttons (Last 30 Days, Edit Dashboard) ═══ */
+body.nestui-active.nestui-aurora [class*="filter-btn"],
+body.nestui-active.nestui-aurora [class*="FilterBtn"],
+body.nestui-active.nestui-aurora [class*="action-btn"],
+body.nestui-active.nestui-aurora [class*="ActionBtn"],
+body.nestui-active.nestui-aurora [class*="date-range"],
+body.nestui-active.nestui-aurora [class*="DateRange"],
+body.nestui-active.nestui-aurora [class*="date-picker"],
+body.nestui-active.nestui-aurora [class*="DatePicker"] {
+  border-color: #7c5cfc !important;
+  color: #7c5cfc !important;
+}
+
+/* ═══ Override any stray dark backgrounds that shouldn't be dark in light theme ═══ */
+body.nestui-active.nestui-aurora [class*="bg-dark"],
+body.nestui-active.nestui-aurora .bg-dark {
+  background-color: #111110 !important;
+}
+
+/* ═══ Search input in sidebar ═══ */
+body.nestui-active.nestui-aurora [class*="sidebar"] input,
+body.nestui-active.nestui-aurora [class*="sidebar"] [class*="search"],
+body.nestui-active.nestui-aurora aside input,
+body.nestui-active.nestui-aurora aside [class*="search"] {
+  background-color: #ffffff !important;
+  border: 1px solid rgba(0,0,0,0.1) !important;
+  color: #111110 !important;
+}
+
+/* ═══ Overdue/Status badges ═══ */
+body.nestui-active.nestui-aurora [class*="overdue"],
+body.nestui-active.nestui-aurora [class*="Overdue"] {
+  color: #e05252 !important;
+}
+
+/* ═══ Links ═══ */
+body.nestui-active.nestui-aurora a:not([class*="sidebar"]):not([class*="nav"]):not(aside a) {
+  color: #7c5cfc !important;
+}
+
+/* ═══ Selection/highlight color ═══ */
+body.nestui-active.nestui-aurora ::selection {
+  background-color: rgba(124,92,252,0.2) !important;
+  color: #111110 !important;
 }
