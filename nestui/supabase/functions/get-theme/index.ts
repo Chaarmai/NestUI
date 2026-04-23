@@ -21,6 +21,7 @@ Deno.serve(async (req: Request) => {
 
   const url = new URL(req.url)
   const key = url.searchParams.get('key')
+  const locationId = url.searchParams.get('location')
 
   if (!key) {
     return new Response(JSON.stringify({ error: 'Missing key parameter' }), {
@@ -35,23 +36,43 @@ Deno.serve(async (req: Request) => {
     Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!,
   )
 
-  const { data, error } = await supabase
+  // 1. Look up the workspace by API key
+  const { data: workspace, error: wsError } = await supabase
     .from('workspaces')
-    .select('active_theme_id, theme_applied_at')
+    .select('id, active_theme_id, theme_applied_at')
     .eq('api_key', key)
     .single()
 
-  if (error || !data) {
+  if (wsError || !workspace) {
     return new Response(JSON.stringify({ error: 'Workspace not found' }), {
       status: 404,
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     })
   }
 
+  // 2. If a location ID was provided, check for a sub-account-specific theme
+  let themeId = workspace.active_theme_id
+  let source: 'sub-account' | 'workspace' = 'workspace'
+
+  if (locationId) {
+    const { data: subAccount } = await supabase
+      .from('sub_accounts')
+      .select('active_theme_id')
+      .eq('workspace_id', workspace.id)
+      .eq('ghl_account_id', locationId)
+      .maybeSingle()
+
+    if (subAccount?.active_theme_id) {
+      themeId = subAccount.active_theme_id
+      source = 'sub-account'
+    }
+  }
+
   return new Response(
     JSON.stringify({
-      themeId: data.active_theme_id,
-      updatedAt: data.theme_applied_at,
+      themeId,
+      source,
+      updatedAt: workspace.theme_applied_at,
     }),
     {
       status: 200,
