@@ -1,0 +1,151 @@
+/*
+ * Nest UI — Phantom Theme
+ * Editorial black & white. No sidebar whatsoever.
+ * Nav: Top Nav Only
+ */
+
+body.nestui-active.nestui-phantom {
+  --bg: #0a0a0a;
+  --bg1: #111111;
+  --bg2: #181818;
+  --surface: #1f1f1f;
+  --border: rgba(255,255,255,0.07);
+  --accent: #f0ede8;
+  --accent-soft: rgba(201,168,76,0.1);
+  --text: #f0ede8;
+  --text2: #888888;
+  --text3: #444444;
+
+  background-color: var(--bg) !important;
+  color: var(--text) !important;
+}
+
+body.nestui-active.nestui-phantom,
+body.nestui-active.nestui-phantom * {
+  --hl-primary-color: #f0ede8 !important;
+  --hl-bg-color: #0a0a0a !important;
+  --hl-text-color: #f0ede8 !important;
+  --hl-border-color: rgba(255,255,255,0.07) !important;
+}
+
+/* Hide sidebar — Phantom uses top nav only */
+body.nestui-active.nestui-phantom .hl-sidebar,
+body.nestui-active.nestui-phantom [class*="sidebar"] {
+  display: none !important;
+}
+
+body.nestui-active.nestui-phantom .hl-header,
+body.nestui-active.nestui-phantom header,
+body.nestui-active.nestui-phantom [class*="topbar"],
+body.nestui-active.nestui-phantom [class*="top-bar"] {
+  background-color: var(--bg1) !important;
+  border-bottom-color: var(--border) !important;
+}
+
+body.nestui-active.nestui-phantom nav a,
+body.nestui-active.nestui-phantom [class*="topbar"] a {
+  color: var(--text3) !important;
+}
+
+body.nestui-active.nestui-phantom nav a.active,
+body.nestui-active.nestui-phantom nav a[aria-current="page"] {
+  color: var(--accent) !important;
+  font-weight: 700;
+}
+
+body.nestui-active.nestui-phantom .hl-card,
+body.nestui-active.nestui-phantom [class*="card"],
+body.nestui-active.nestui-phantom .hl-panel {
+  background-color: var(--surface) !important;
+  border-color: var(--border) !important;
+  color: var(--text) !important;
+}
+
+body.nestui-active.nestui-phantom table,
+body.nestui-active.nestui-phantom .hl-table {
+  background-color: var(--bg1) !important;
+}
+
+body.nestui-active.nestui-phantom th {
+  background-color: var(--bg2) !important;
+  color: var(--text2) !important;
+  border-color: var(--border) !important;
+}
+
+body.nestui-active.nestui-phantom td {
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+
+body.nestui-active.nestui-phantom .hl-btn-primary,
+body.nestui-active.nestui-phantom [class*="btn-primary"],
+body.nestui-active.nestui-phantom button[type="submit"] {
+  background-color: var(--accent) !important;
+  color: #0a0a0a !important;
+  border: none !important;
+}
+
+body.nestui-active.nestui-phantom .hl-btn-secondary,
+body.nestui-active.nestui-phantom [class*="btn-secondary"] {
+  background-color: var(--surface) !important;
+  color: var(--accent) !important;
+  border: 1px solid var(--border) !important;
+}
+
+body.nestui-active.nestui-phantom input,
+body.nestui-active.nestui-phantom select,
+body.nestui-active.nestui-phantom textarea {
+  background-color: var(--bg2) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+
+body.nestui-active.nestui-phantom input::placeholder,
+body.nestui-active.nestui-phantom textarea::placeholder {
+  color: var(--text3) !important;
+}
+
+body.nestui-active.nestui-phantom a {
+  color: var(--accent) !important;
+}
+
+body.nestui-active.nestui-phantom .hl-badge,
+body.nestui-active.nestui-phantom [class*="badge"] {
+  background-color: var(--accent-soft) !important;
+  color: var(--accent) !important;
+}
+
+body.nestui-active.nestui-phantom [class*="modal"],
+body.nestui-active.nestui-phantom [class*="dropdown-menu"],
+body.nestui-active.nestui-phantom [class*="popover"] {
+  background-color: var(--surface) !important;
+  border-color: var(--border) !important;
+  color: var(--text) !important;
+}
+
+body.nestui-active.nestui-phantom ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+body.nestui-active.nestui-phantom ::-webkit-scrollbar-track {
+  background: var(--bg) !important;
+}
+
+body.nestui-active.nestui-phantom ::-webkit-scrollbar-thumb {
+  background: var(--text3) !important;
+  border-radius: 3px;
+}
+
+body.nestui-active.nestui-phantom h1,
+body.nestui-active.nestui-phantom h2,
+body.nestui-active.nestui-phantom h3,
+body.nestui-active.nestui-phantom h4 {
+  color: var(--text) !important;
+}
+
+body.nestui-active.nestui-phantom p,
+body.nestui-active.nestui-phantom span,
+body.nestui-active.nestui-phantom label {
+  color: var(--text2) !important;
+}

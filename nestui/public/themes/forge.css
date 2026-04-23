@@ -1,0 +1,153 @@
+/*
+ * Nest UI — Forge Theme
+ * Industrial warmth. Amber copper on rich dark brown.
+ * Nav: Rail + Sidebar
+ */
+
+body.nestui-active.nestui-forge {
+  --bg: #0f0d0a;
+  --bg1: #151210;
+  --bg2: #1c1814;
+  --surface: #2a231d;
+  --border: rgba(255,160,60,0.07);
+  --accent: #f59e0b;
+  --accent-soft: rgba(245,158,11,0.12);
+  --text: #fdf4e7;
+  --text2: #a89070;
+  --text3: #5c4a38;
+
+  background-color: var(--bg) !important;
+  color: var(--text) !important;
+}
+
+body.nestui-active.nestui-forge,
+body.nestui-active.nestui-forge * {
+  --hl-primary-color: #f59e0b !important;
+  --hl-bg-color: #0f0d0a !important;
+  --hl-text-color: #fdf4e7 !important;
+  --hl-border-color: rgba(255,160,60,0.07) !important;
+}
+
+body.nestui-active.nestui-forge .hl-sidebar,
+body.nestui-active.nestui-forge [class*="sidebar"],
+body.nestui-active.nestui-forge nav {
+  background-color: var(--bg1) !important;
+  border-color: var(--border) !important;
+}
+
+body.nestui-active.nestui-forge .hl-sidebar a,
+body.nestui-active.nestui-forge [class*="sidebar"] a {
+  color: var(--text2) !important;
+}
+
+body.nestui-active.nestui-forge .hl-sidebar a.active,
+body.nestui-active.nestui-forge .hl-sidebar a[aria-current="page"],
+body.nestui-active.nestui-forge [class*="sidebar"] a.active {
+  color: var(--accent) !important;
+  background-color: var(--accent-soft) !important;
+}
+
+body.nestui-active.nestui-forge .hl-header,
+body.nestui-active.nestui-forge header,
+body.nestui-active.nestui-forge [class*="topbar"],
+body.nestui-active.nestui-forge [class*="top-bar"] {
+  background-color: var(--bg1) !important;
+  border-bottom-color: var(--border) !important;
+}
+
+body.nestui-active.nestui-forge .hl-card,
+body.nestui-active.nestui-forge [class*="card"],
+body.nestui-active.nestui-forge .hl-panel {
+  background-color: var(--surface) !important;
+  border-color: var(--border) !important;
+  color: var(--text) !important;
+}
+
+body.nestui-active.nestui-forge table,
+body.nestui-active.nestui-forge .hl-table {
+  background-color: var(--bg1) !important;
+}
+
+body.nestui-active.nestui-forge th {
+  background-color: var(--bg2) !important;
+  color: var(--text2) !important;
+  border-color: var(--border) !important;
+}
+
+body.nestui-active.nestui-forge td {
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+
+body.nestui-active.nestui-forge .hl-btn-primary,
+body.nestui-active.nestui-forge [class*="btn-primary"],
+body.nestui-active.nestui-forge button[type="submit"] {
+  background-color: var(--accent) !important;
+  color: #0f0d0a !important;
+  border: none !important;
+}
+
+body.nestui-active.nestui-forge .hl-btn-secondary,
+body.nestui-active.nestui-forge [class*="btn-secondary"] {
+  background-color: var(--surface) !important;
+  color: var(--accent) !important;
+  border: 1px solid var(--border) !important;
+}
+
+body.nestui-active.nestui-forge input,
+body.nestui-active.nestui-forge select,
+body.nestui-active.nestui-forge textarea {
+  background-color: var(--bg2) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+
+body.nestui-active.nestui-forge input::placeholder,
+body.nestui-active.nestui-forge textarea::placeholder {
+  color: var(--text3) !important;
+}
+
+body.nestui-active.nestui-forge a {
+  color: var(--accent) !important;
+}
+
+body.nestui-active.nestui-forge .hl-badge,
+body.nestui-active.nestui-forge [class*="badge"] {
+  background-color: var(--accent-soft) !important;
+  color: var(--accent) !important;
+}
+
+body.nestui-active.nestui-forge [class*="modal"],
+body.nestui-active.nestui-forge [class*="dropdown-menu"],
+body.nestui-active.nestui-forge [class*="popover"] {
+  background-color: var(--surface) !important;
+  border-color: var(--border) !important;
+  color: var(--text) !important;
+}
+
+body.nestui-active.nestui-forge ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+body.nestui-active.nestui-forge ::-webkit-scrollbar-track {
+  background: var(--bg) !important;
+}
+
+body.nestui-active.nestui-forge ::-webkit-scrollbar-thumb {
+  background: var(--text3) !important;
+  border-radius: 3px;
+}
+
+body.nestui-active.nestui-forge h1,
+body.nestui-active.nestui-forge h2,
+body.nestui-active.nestui-forge h3,
+body.nestui-active.nestui-forge h4 {
+  color: var(--text) !important;
+}
+
+body.nestui-active.nestui-forge p,
+body.nestui-active.nestui-forge span,
+body.nestui-active.nestui-forge label {
+  color: var(--text2) !important;
+}

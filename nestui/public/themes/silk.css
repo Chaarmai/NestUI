@@ -1,0 +1,140 @@
+/*
+ * Nest UI — Silk Theme
+ * Luxury light with floating pill bar. Sage green on warm cream.
+ * Nav: Floating Center Nav
+ */
+
+body.nestui-active.nestui-silk {
+  --bg: #f7f5f0;
+  --bg1: #f2efe9;
+  --bg2: #fefefe;
+  --surface: #ffffff;
+  --border: rgba(0,0,0,0.07);
+  --accent: #3d6b4f;
+  --accent-soft: rgba(61,107,79,0.08);
+  --text: #1a1a16;
+  --text2: #6b6757;
+  --text3: #aba898;
+
+  background-color: var(--bg) !important;
+  color: var(--text) !important;
+}
+
+body.nestui-active.nestui-silk,
+body.nestui-active.nestui-silk * {
+  --hl-primary-color: #3d6b4f !important;
+  --hl-bg-color: #f7f5f0 !important;
+  --hl-text-color: #1a1a16 !important;
+  --hl-border-color: rgba(0,0,0,0.07) !important;
+}
+
+/* Hide sidebar — Silk uses floating center nav */
+body.nestui-active.nestui-silk .hl-sidebar,
+body.nestui-active.nestui-silk [class*="sidebar"] {
+  display: none !important;
+}
+
+body.nestui-active.nestui-silk .hl-header,
+body.nestui-active.nestui-silk header,
+body.nestui-active.nestui-silk [class*="topbar"],
+body.nestui-active.nestui-silk [class*="top-bar"] {
+  background-color: var(--bg) !important;
+  border-bottom-color: var(--border) !important;
+}
+
+body.nestui-active.nestui-silk .hl-card,
+body.nestui-active.nestui-silk [class*="card"],
+body.nestui-active.nestui-silk .hl-panel {
+  background-color: var(--surface) !important;
+  border-color: var(--border) !important;
+  color: var(--text) !important;
+}
+
+body.nestui-active.nestui-silk table,
+body.nestui-active.nestui-silk .hl-table {
+  background-color: var(--bg2) !important;
+}
+
+body.nestui-active.nestui-silk th {
+  background-color: var(--bg1) !important;
+  color: var(--text2) !important;
+  border-color: var(--border) !important;
+}
+
+body.nestui-active.nestui-silk td {
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+
+body.nestui-active.nestui-silk .hl-btn-primary,
+body.nestui-active.nestui-silk [class*="btn-primary"],
+body.nestui-active.nestui-silk button[type="submit"] {
+  background-color: var(--accent) !important;
+  color: #ffffff !important;
+  border: none !important;
+}
+
+body.nestui-active.nestui-silk .hl-btn-secondary,
+body.nestui-active.nestui-silk [class*="btn-secondary"] {
+  background-color: var(--surface) !important;
+  color: var(--accent) !important;
+  border: 1px solid var(--border) !important;
+}
+
+body.nestui-active.nestui-silk input,
+body.nestui-active.nestui-silk select,
+body.nestui-active.nestui-silk textarea {
+  background-color: var(--bg2) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+
+body.nestui-active.nestui-silk input::placeholder,
+body.nestui-active.nestui-silk textarea::placeholder {
+  color: var(--text3) !important;
+}
+
+body.nestui-active.nestui-silk a {
+  color: var(--accent) !important;
+}
+
+body.nestui-active.nestui-silk .hl-badge,
+body.nestui-active.nestui-silk [class*="badge"] {
+  background-color: var(--accent-soft) !important;
+  color: var(--accent) !important;
+}
+
+body.nestui-active.nestui-silk [class*="modal"],
+body.nestui-active.nestui-silk [class*="dropdown-menu"],
+body.nestui-active.nestui-silk [class*="popover"] {
+  background-color: var(--surface) !important;
+  border-color: var(--border) !important;
+  color: var(--text) !important;
+}
+
+body.nestui-active.nestui-silk ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+body.nestui-active.nestui-silk ::-webkit-scrollbar-track {
+  background: var(--bg) !important;
+}
+
+body.nestui-active.nestui-silk ::-webkit-scrollbar-thumb {
+  background: var(--text3) !important;
+  border-radius: 3px;
+}
+
+body.nestui-active.nestui-silk h1,
+body.nestui-active.nestui-silk h2,
+body.nestui-active.nestui-silk h3,
+body.nestui-active.nestui-silk h4 {
+  color: var(--text) !important;
+}
+
+body.nestui-active.nestui-silk p,
+body.nestui-active.nestui-silk span,
+body.nestui-active.nestui-silk label {
+  color: var(--text2) !important;
+}

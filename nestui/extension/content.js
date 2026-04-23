@@ -6,7 +6,8 @@
  */
 
 ;(async () => {
-  const API_BASE = 'https://nest-ui-eight.vercel.app'
+  const SUPABASE_URL = 'https://waqimvlocmrmzidysoqa.supabase.co'
+  const CDN_BASE = 'https://nest-ui-eight.vercel.app'
 
   // Get the API key from extension storage
   const { nestui_api_key: key } = await chrome.storage.sync.get('nestui_api_key')
@@ -16,7 +17,7 @@
   const locationId = detectLocationId()
 
   try {
-    let apiUrl = `${API_BASE}/api/theme?key=${encodeURIComponent(key)}`
+    let apiUrl = `${SUPABASE_URL}/functions/v1/get-theme?key=${encodeURIComponent(key)}`
     if (locationId) {
       apiUrl += `&location=${encodeURIComponent(locationId)}`
     }
@@ -30,7 +31,7 @@
     // Inject the theme stylesheet
     const link = document.createElement('link')
     link.rel = 'stylesheet'
-    link.href = `${API_BASE}/themes/${themeId}.css`
+    link.href = `${CDN_BASE}/themes/${themeId}.css`
     link.id = 'nestui-theme'
     document.head.appendChild(link)
 
@@ -75,7 +76,7 @@
    */
   async function swapTheme(apiKey, locId) {
     try {
-      let url = `${API_BASE}/api/theme?key=${encodeURIComponent(apiKey)}`
+      let url = `${SUPABASE_URL}/functions/v1/get-theme?key=${encodeURIComponent(apiKey)}`
       if (locId) url += `&location=${encodeURIComponent(locId)}`
 
       const res = await fetch(url)
@@ -87,7 +88,7 @@
       // Update the stylesheet
       const existing = document.getElementById('nestui-theme')
       if (existing) {
-        existing.href = `${API_BASE}/themes/${themeId}.css`
+        existing.href = `${CDN_BASE}/themes/${themeId}.css`
       }
 
       // Update body classes
