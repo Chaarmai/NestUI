@@ -47,10 +47,11 @@ export function useSubAccounts() {
   }, [fetchSubAccounts])
 
   async function addSubAccount(name: string, ghlAccountId: string) {
-    if (!workspace) return
+    if (!workspace) throw new Error('No workspace found')
     if (!canAddMore) {
-      setError(`Plan limit reached (${maxAllowed} sub-account${maxAllowed === 1 ? '' : 's'})`)
-      return
+      const msg = `Plan limit reached (${maxAllowed} sub-account${maxAllowed === 1 ? '' : 's'})`
+      setError(msg)
+      throw new Error(msg)
     }
     setError(null)
     try {
@@ -67,6 +68,7 @@ export function useSubAccounts() {
     } catch (err) {
       const message = err instanceof Error ? err.message : 'Failed to add sub-account'
       setError(message)
+      throw err
     }
   }
 

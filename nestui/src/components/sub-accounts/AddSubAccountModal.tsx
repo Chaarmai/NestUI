@@ -11,17 +11,21 @@ export default function AddSubAccountModal({ open, onClose, onAdd }: AddSubAccou
   const [name, setName] = useState('')
   const [ghlAccountId, setGhlAccountId] = useState('')
   const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     if (!name.trim() || !ghlAccountId.trim()) return
 
     setSubmitting(true)
+    setError(null)
     try {
       await onAdd(name.trim(), ghlAccountId.trim())
       setName('')
       setGhlAccountId('')
       onClose()
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to add sub-account')
     } finally {
       setSubmitting(false)
     }
@@ -65,6 +69,12 @@ export default function AddSubAccountModal({ open, onClose, onAdd }: AddSubAccou
             />
           </div>
         </div>
+
+        {error && (
+          <div className="mt-4 rounded-lg border border-red-500/20 bg-red-500/5 px-3 py-2 text-xs text-red-400">
+            {error}
+          </div>
+        )}
 
         <div className="mt-6 flex gap-3 justify-end">
           <button
