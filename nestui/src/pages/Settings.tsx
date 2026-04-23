@@ -54,6 +54,36 @@ export default function Settings() {
             </div>
           </div>
 
+          {/* Install Script */}
+          <div className="rounded-xl p-px bg-gradient-to-b from-white/[0.06] to-transparent">
+            <div className="rounded-[11px] bg-nestui-bg1/80 backdrop-blur-sm p-6">
+              <h2 className="text-[11px] font-semibold uppercase tracking-widest text-nestui-text3 mb-4">Install Script</h2>
+              <p className="text-xs text-nestui-text2 mb-3">
+                Paste this into your GHL account's custom code settings (Settings → Custom Code → Header).
+              </p>
+              <div className="relative">
+                <pre className="rounded-lg border border-nestui-border/50 bg-nestui-bg/60 px-3.5 py-3 text-xs text-nestui-text font-mono overflow-x-auto whitespace-pre-wrap break-all">
+{`<script src="https://nest-ui-eight.vercel.app/inject.js" data-key="${workspace?.api_key ?? '...'}"></script>`}
+                </pre>
+                <button
+                  onClick={() => {
+                    const snippet = `<script src="https://nest-ui-eight.vercel.app/inject.js" data-key="${workspace?.api_key ?? ''}"></script>`
+                    navigator.clipboard.writeText(snippet)
+                  }}
+                  className="absolute top-2 right-2 rounded-md bg-white/[0.05] border border-nestui-border/50 px-2 py-1 text-[10px] font-medium text-nestui-text2 hover:text-nestui-text hover:bg-white/[0.08] transition-all cursor-pointer"
+                >
+                  Copy
+                </button>
+              </div>
+              <div className="mt-3">
+                <label className="block text-xs font-medium text-nestui-text2 mb-1.5">API Key</label>
+                <code className="block rounded-lg border border-nestui-border/50 bg-nestui-bg/60 px-3.5 py-2.5 text-xs text-nestui-text2 font-mono">
+                  {workspace?.api_key ?? 'No API key found'}
+                </code>
+              </div>
+            </div>
+          </div>
+
           {/* Danger zone */}
           <div className="rounded-xl p-px bg-gradient-to-b from-red-500/10 to-transparent">
             <div className="rounded-[11px] bg-nestui-bg1/80 backdrop-blur-sm p-6">
