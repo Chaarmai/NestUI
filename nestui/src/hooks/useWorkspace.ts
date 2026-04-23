@@ -34,6 +34,10 @@ export function useWorkspace() {
         theme_applied_at: null,
         plan: 'free',
         stripe_customer_id: null,
+        ghl_access_token: null,
+        ghl_refresh_token: null,
+        ghl_token_expires_at: null,
+        ghl_location_id: null,
       })
       setWorkspaceLoading(false)
       return
@@ -87,7 +91,44 @@ export function useWorkspace() {
     return data as Workspace
   }, [user, setWorkspace])
 
-  // Connect GHL (simulated OAuth — will be replaced with real OAuth in production)
+  // Build the GHL OAuth URL and redirect user to GHL consent screen
+  const startGHLOAuth = useCallback(() => {
+    if (!workspace || !user) throw new Error('No workspace or user')
+
+    const clientId = import.meta.env.VITE_GHL_CLIENT_ID
+    if (!clientId) {
+      throw new Error('GHL OAuth is not configured yet (missing VITE_GHL_CLIENT_ID)')
+    }
+
+    const redirectUri = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/ghl-oauth-callback`
+    const state = `${workspace.id}:${user.id}`
+
+    const params = new URLSearchParams({
+      response_type: 'code',
+      client_id: clientId,
+      redirect_uri: redirectUri,
+      scope: 'contacts.readonly locations.readonly',
+      state,
+    })
+
+    window.location.href = `https://marketplace.gohighlevel.com/oauth/chooselocation?${params.toString()}`
+  }, [workspace, user])
+
+  // Re-fetch workspace after OAuth callback (called when ?ghl=connected is in URL)
+  const refreshWorkspace = useCallback(async () => {
+    if (!user) return
+    const { data, error } = await supabase
+      .from('workspaces')
+      .select('*')
+      .eq('owner_id', user.id)
+      .maybeSingle()
+
+    if (!error && data) {
+      setWorkspace(data as Workspace)
+    }
+  }, [user, setWorkspace])
+
+  // Legacy simulated connect — kept for fallback when OAuth isn't configured
   const connectGHL = useCallback(async (subdomain: string) => {
     if (!workspace) throw new Error('No workspace')
 
@@ -133,6 +174,8 @@ export function useWorkspace() {
     workspaceLoading,
     createWorkspace,
     connectGHL,
+    startGHLOAuth,
+    refreshWorkspace,
     applyTheme,
   }
 }

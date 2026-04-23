@@ -10,6 +10,10 @@ export interface Workspace {
   theme_applied_at: string | null
   plan: 'free' | 'pro' | 'agency'
   stripe_customer_id: string | null
+  ghl_access_token: string | null
+  ghl_refresh_token: string | null
+  ghl_token_expires_at: string | null
+  ghl_location_id: string | null
 }
 
 export interface ThemeApplication {

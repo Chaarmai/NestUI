@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
 import { useWorkspace } from '../hooks/useWorkspace'
 import Spinner from '../components/ui/Spinner'
@@ -8,14 +8,31 @@ type Step = 'create' | 'connect' | 'done'
 
 export default function Onboarding() {
   const { signOut } = useAuth()
-  const { workspace, createWorkspace, connectGHL } = useWorkspace()
+  const { workspace, createWorkspace, startGHLOAuth, connectGHL, refreshWorkspace } = useWorkspace()
   const navigate = useNavigate()
+  const [searchParams] = useSearchParams()
 
   const [step, setStep] = useState<Step>(workspace ? 'connect' : 'create')
   const [workspaceName, setWorkspaceName] = useState('')
   const [subdomain, setSubdomain] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [useManualConnect, setUseManualConnect] = useState(false)
+
+  const oauthConfigured = !!import.meta.env.VITE_GHL_CLIENT_ID
+
+  // Handle OAuth callback redirect
+  useEffect(() => {
+    const ghlStatus = searchParams.get('ghl')
+    if (ghlStatus === 'connected') {
+      refreshWorkspace()
+      setStep('done')
+      setTimeout(() => navigate('/dashboard', { replace: true }), 1500)
+    } else if (ghlStatus === 'error') {
+      const reason = searchParams.get('reason') || 'unknown'
+      setError(`GHL connection failed: ${reason.replace(/_/g, ' ')}. Please try again.`)
+    }
+  }, [searchParams, refreshWorkspace, navigate])
 
   const handleCreateWorkspace = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -33,7 +50,16 @@ export default function Onboarding() {
     }
   }
 
-  const handleConnectGHL = async (e: React.FormEvent) => {
+  const handleOAuthConnect = () => {
+    setError(null)
+    try {
+      startGHLOAuth()
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to start GHL connection')
+    }
+  }
+
+  const handleManualConnect = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!subdomain.trim()) return
 
@@ -139,8 +165,62 @@ export default function Onboarding() {
               </form>
             )}
 
-            {step === 'connect' && (
-              <form onSubmit={handleConnectGHL} className="space-y-4">
+            {step === 'connect' && !useManualConnect && (
+              <div className="space-y-4">
+                <div className="text-center space-y-2">
+                  <div className="w-12 h-12 rounded-xl bg-nestui-blue/10 flex items-center justify-center mx-auto mb-3">
+                    <svg className="w-6 h-6 text-nestui-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m9.86-2.04a4.5 4.5 0 00-1.242-7.244l4.5-4.5a4.5 4.5 0 016.364 6.364l-1.757 1.757" />
+                    </svg>
+                  </div>
+                  <p className="text-sm text-nestui-text">
+                    Connect your GoHighLevel account to start applying themes.
+                  </p>
+                  <p className="text-xs text-nestui-text3">
+                    You'll be redirected to GoHighLevel to authorize Nest UI.
+                  </p>
+                </div>
+
+                <button
+                  onClick={handleOAuthConnect}
+                  disabled={!oauthConfigured}
+                  className="w-full py-2.5 rounded-lg bg-gradient-to-r from-nestui-blue to-blue-500 text-white text-sm font-semibold hover:shadow-[0_0_25px_rgba(91,143,255,0.25)] transition-all disabled:opacity-50 flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                  </svg>
+                  {oauthConfigured ? 'Connect with GoHighLevel' : 'OAuth Not Configured Yet'}
+                </button>
+
+                {!oauthConfigured && (
+                  <div className="p-3 rounded-lg bg-amber-500/5 border border-amber-500/20 text-amber-400 text-xs">
+                    GHL OAuth credentials aren't set up yet. You can use manual connection below, or set <code className="font-mono bg-amber-500/10 px-1 rounded">VITE_GHL_CLIENT_ID</code> in your environment.
+                  </div>
+                )}
+
+                <div className="flex flex-col gap-2">
+                  {!oauthConfigured && (
+                    <button
+                      type="button"
+                      onClick={() => setUseManualConnect(true)}
+                      className="w-full py-2 text-xs text-nestui-text2 hover:text-nestui-text transition-colors cursor-pointer underline underline-offset-2"
+                    >
+                      Use manual subdomain connection instead
+                    </button>
+                  )}
+                  <button
+                    type="button"
+                    onClick={skipConnect}
+                    className="w-full py-2 text-xs text-nestui-text3 hover:text-nestui-text2 transition-colors cursor-pointer"
+                  >
+                    Skip for now — I'll connect later
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {step === 'connect' && useManualConnect && (
+              <form onSubmit={handleManualConnect} className="space-y-4">
                 <div>
                   <label htmlFor="ghl-subdomain" className="block text-sm font-medium text-nestui-text mb-1.5">
                     GHL Subdomain
@@ -171,6 +251,13 @@ export default function Onboarding() {
                     className="w-full py-2.5 rounded-lg bg-gradient-to-r from-nestui-blue to-blue-500 text-white text-sm font-semibold hover:shadow-[0_0_25px_rgba(91,143,255,0.25)] transition-all disabled:opacity-50 flex items-center justify-center gap-2 cursor-pointer"
                   >
                     {loading ? <><Spinner size={16} /> Connecting...</> : 'Connect GHL Account'}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setUseManualConnect(false)}
+                    className="w-full py-2 text-xs text-nestui-text2 hover:text-nestui-text transition-colors cursor-pointer underline underline-offset-2"
+                  >
+                    Back to OAuth connection
                   </button>
                   <button
                     type="button"

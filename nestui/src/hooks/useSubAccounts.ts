@@ -19,7 +19,10 @@ export function useSubAccounts() {
   const canAddMore = subAccounts.length < maxAllowed
 
   const fetchSubAccounts = useCallback(async () => {
-    if (!workspace) return
+    if (!workspace) {
+      setLoading(false)
+      return
+    }
     setLoading(true)
     setError(null)
     try {
