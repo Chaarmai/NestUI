@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
 /*
  * Nest UI — Void Theme
  * Brutalist monochrome. Nav on the right. Single electric green accent.
@@ -18,6 +20,7 @@ body.nestui-active.nestui-void {
 
   background-color: var(--bg) !important;
   color: var(--text) !important;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
 }
 
 body.nestui-active.nestui-void,

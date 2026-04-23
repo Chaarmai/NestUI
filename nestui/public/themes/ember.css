@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@400;500&display=swap');
+
 /*
  * Nest UI — Ember Theme
  * Luxury crimson with serif typography. Bottom dock navigation.
@@ -18,6 +20,7 @@ body.nestui-active.nestui-ember {
 
   background-color: var(--bg) !important;
   color: var(--text) !important;
+  font-family: 'Playfair Display', Georgia, serif !important;
 }
 
 body.nestui-active.nestui-ember,

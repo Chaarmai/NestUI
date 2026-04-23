@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
+
 /*
  * Nest UI — Forge Theme
  * Industrial warmth. Amber copper on rich dark brown.
@@ -18,6 +20,7 @@ body.nestui-active.nestui-forge {
 
   background-color: var(--bg) !important;
   color: var(--text) !important;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
 }
 
 body.nestui-active.nestui-forge,

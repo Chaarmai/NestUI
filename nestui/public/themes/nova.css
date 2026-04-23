@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap');
+
 /*
  * Nest UI — Nova Theme
  * Glassmorphism cards with pill nav. Deep purple midnight.
@@ -18,6 +20,7 @@ body.nestui-active.nestui-nova {
 
   background-color: var(--bg) !important;
   color: var(--text) !important;
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif !important;
 }
 
 body.nestui-active.nestui-nova,
